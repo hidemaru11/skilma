@@ -1,0 +1,29 @@
+<header class="header">
+  <div class="header__bar">
+    <h1>
+      <%= link_to "SKILMA", root_path %>
+    </h1>
+    <ul class="header__bar__content_nav">
+      <li class="header__bar__content_nav__list">
+        <%= link_to "募集する", root_path %>
+      </li>
+      <li class="header__bar__content_nav__list">
+        <%= link_to "提案する", root_path %>
+      </li>
+    </ul>
+    <ul class="header__bar__user_nav">
+      <li class="user_name">
+        <span>ユーザーさん</span>
+      </li>
+      <li class="header__bar__user_nav__btn">
+        <%= link_to "ログアウト", root_path %>
+      </li>
+      <li class="header__bar__user_nav__btn">
+        <%= link_to "ログイン", root_path %>
+      </li>
+      <li class="header__bar__user_nav__btn">
+        <%= link_to "新規登録", root_path %>
+      </li>
+    </ul>
+  </div>
+</header>
