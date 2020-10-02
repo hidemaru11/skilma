@@ -21,15 +21,11 @@
 
     .field {
       margin-bottom: 16px;
-      
-      .field_label {
-        padding: 10px 0;
-        letter-spacing: 1px;
-        font-size: 14px;
-        font-weight: 200;
-        
-        i {
-          font-size: 11px;
+      .remember {
+        margin-top: 16px;
+        label {
+          font-size: 13px;
+          color: $color_note;
         }
       }
       
@@ -68,6 +64,20 @@
       font-size: 13px;
       &:hover {
         opacity: 0.6;
+      }
+    }
+    .registration_link {
+      display: inline-block;
+      border: 1px solid $color_theme;
+      color: $color_theme;
+      padding: 4px 10px;
+      margin-bottom: 10px;
+      font-size: 12px;
+      border-radius: 20px;
+      &:hover {
+        color: white;
+        background-color: $color_theme;
+        opacity: 1;
       }
     }
   }
@@ -120,10 +130,10 @@
 }
 
 #error_explanation {
-  margin: 20px 0;
+  width: 350px;
+  margin: 20px auto;
   padding: 20px 30px;
-  border: 1px solid #ddd;
-  border-radius: 2px;
+  background-color: $color_alert_light;
 
   h2 {
     margin-bottom: 10px;
@@ -132,6 +142,7 @@
   }
 
   ul {
+    text-align: left;
     margin: 0;
     padding-left: 17px;
     list-style: square;

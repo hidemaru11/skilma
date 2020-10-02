@@ -1,6 +1,24 @@
 .wrapper {
   height: 100%;
-  min-height: calc(100vh - 176px);
+  min-height: calc(100vh - 120px);
   min-width: $fix_width;
   margin-top: 112px;
+}
+
+.notifications {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  color: white;
+  text-align: center;  
+
+  .notice {
+    background-color: $color_notice;
+  }
+
+  .alert {
+    padding: 0;
+    background-color: $color_alert;
+  }
 }
