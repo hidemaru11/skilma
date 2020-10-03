@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   end
   
   root 'home#index'
-  
+  resources :requests
 end
