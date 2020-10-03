@@ -1,8 +1,223 @@
+.account_page {
+  &__inner {
+    width: 665px;
+    margin: 0 auto;
+    padding: 40px 60px 10px;
+    background-color: white;
+  }
+
+  &__header {
+    text-align: center;
+    h2 {
+      color: $color_theme;
+      margin-bottom: 24px;
+      font-size: $font_size_h2;
+      font-weight: 700;
+    }
+    
+    &__edit {
+      h3 {
+        text-align: left;
+        color: $color_theme;
+        margin-bottom: 24px;
+        font-size: $font_size_h3;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__user_form {
+    text-align: center;
+    .field {
+      margin-bottom: 16px;
+      .remember {
+        margin-top: 16px;
+        label {
+          font-size: 13px;
+          color: $color_note;
+        }
+      }
+      .field_input {
+        input {
+          width: 260px;
+          line-height: normal;
+          padding: 20px;
+          background: $color_background;
+          border: none;
+          border-radius: 4px;
+          color: $color_note;
+          font-size: 13px;
+          letter-spacing: 1px;
+
+          &:focus {
+            outline: none;
+          }
+
+          &::placeholder {
+            color: $color_note;;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    
+    .actions {
+      text-align: center;
+    }
+
+    &__edit {      
+      .field {
+        margin-bottom: 16px;
+        .field_input {
+          label {
+            margin-left: 6px;
+            font-size: 13px;
+            font-weight: 700;
+          }
+
+          input {
+            width: 330px;
+            line-height: normal;
+            margin-top: 4px;
+            padding: 8px 10px;
+            background: white;
+            border: 1px solid #d5d5d5;
+            color: $color_input;
+            border-radius: 4px;
+            letter-spacing: 1px;
+
+            &:focus {
+              outline: none;
+            }
+          }
+
+          span {
+            font-size: $font_size_note;
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .devise_links {
+    margin: 24px;
+    text-align: center;
+
+    a {
+      color: $color_note;
+      font-size: 13px;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    .registration_link {
+      display: inline-block;
+      border: 1px solid $color_theme;
+      color: $color_theme;
+      padding: 4px 10px;
+      margin-bottom: 10px;
+      font-size: 12px;
+      border-radius: 20px;
+
+      &:hover {
+        color: white;
+        background-color: $color_theme;
+        opacity: 1;
+      }
+    }
+  }
+
+  .btn {
+    display: inline-block;
+    width: 330px;
+    height: 60px;
+    padding: 0 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 60px;
+    text-align: center;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+
+    &__update {
+      width: 200px;
+      margin: 30px auto;
+      padding: 6px 60px;
+      border: 2px solid $color_theme;
+      border-radius: 4px;
+      font-size: $font_size_h4;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  .actions {
+    input[type='submit'] {
+      color: white;
+      background-color: $color_theme;
+    }
+
+    &__edit {
+      input[type='submit'] {
+        color: $color_theme;
+        background-color: white;
+
+        &:hover {
+          color: white;
+          background-color: $color_theme;
+        }
+      }
+    }
+  }
+
+  .field_label {
+    .field_with_errors {
+      display: inline-block;
+      color: #d65f4c;
+      font-weight: 400;
+    }
+  }
+
+  .field_input {
+    .field_with_errors {
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 5px;
+        background-color: #d65f4c;
+      }
+    }
+  }
+  .button_to {
+    input {
+      border: none;
+      color: $color_note;
+      background-color: white;
+      font-size: 13px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
 #error_explanation {
-  margin: 20px 0;
+  width: 350px;
+  margin: 20px auto;
   padding: 20px 30px;
-  border: 1px solid #ddd;
-  border-radius: 2px;
+  background-color: $color_alert_light;
 
   h2 {
     margin-bottom: 10px;
@@ -11,6 +226,7 @@
   }
 
   ul {
+    text-align: left;
     margin: 0;
     padding-left: 17px;
     list-style: square;
