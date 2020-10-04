@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'requests/index'
-  get 'requests/new'
-  get 'requests/show'
-  get 'requests/edit'
   devise_for :users, controllers: {
     registrations: 'users/registrations', sessions: 'users/sessions' 
   }
