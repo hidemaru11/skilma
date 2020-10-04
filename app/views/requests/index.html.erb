@@ -1,0 +1,46 @@
+<div class="request_page">
+  <div class="request_page__inner">
+    <div class="request_page__header">
+      <h1>音楽仲間をさがす</h1>
+    </div>
+    <div class="request_form">
+      <h2>新規投稿</h2>
+      <%= render 'form' %>
+    </div>
+    <div class="request_list">
+      <h2>投稿一覧</h2>
+      <ul>
+        <li>
+          <% if @requests.present? %>
+            <% @requests.each do |request| %>
+              <div class="request">
+                <div class="request__top_box">
+                </div>
+                <div class="request__middle_box">
+                  <%= link_to request_path(request) do %>
+                    <h3><%= request.title %></h3>
+                  <% end %>
+                  <p><%= request.content %></p>
+                </div>
+                <div class="request__bottom_box">
+                  <div class="request__bottom_box__name">
+                    <span>投稿者：<%= request.user.username %></span>
+                  </div>
+                  <div class="request__bottom_box__time">
+                    <span>投稿日時：<%= request.created_at %></span>
+                  </div>
+                  <div class="request__bottom_box__area">
+                    <span>地域：<%= request.area %></span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <h4>まだ投稿されたスレッドはありません。</h4>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
