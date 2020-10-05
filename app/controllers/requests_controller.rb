@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+  before_action :set_request, only: [:show]
+
   def index
     @requests = Request.all.sorted_desc
     @request = current_user.requests.build
@@ -26,4 +28,8 @@ private
 
   def request_params
     params.require(:request).permit(:title, :content, :area)
+  end
+
+  def set_request
+    @request = Request.find(params[:id])
   end
