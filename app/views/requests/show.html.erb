@@ -30,9 +30,17 @@
     <div class="request_datail__middle_box">
       <div class="request_content">
         <div class="request_info__area">
-          <p><%= @request.content %></p>
+          <p><%= simple_format @request.content %></p>
         </div>
       </div>
+    </div>
+    <div class="request_datail__middle_box">
+      <% if user_signed_in? && current_user.id == @request.user.id %>
+        <div class="admin_actions">
+          <%= link_to "編集", edit_request_path(@request) %>
+          <%= link_to "削除", request_path(@request), method: :delete, data: { confirm: '削除してよろしいですか？' } %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="request_message">
