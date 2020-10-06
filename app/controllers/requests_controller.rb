@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:edit]
 
   def index
     @requests = Request.all.sorted_desc
@@ -41,4 +42,12 @@ private
 
   def set_request
     @request = Request.find(params[:id])
+  end
+
+  def correct_user
+    set_request
+    if current_user.id != @request.user.id
+      flash[:notice] = "アクセス権限がありません"
+      redirect_to root_path
+    end
   end
