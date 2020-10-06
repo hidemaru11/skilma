@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
+  before_action :set_request, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit]
 
   def index
@@ -31,6 +32,12 @@ class RequestsController < ApplicationController
    else
      render :edit
    end
+  end
+
+  def destroy
+    @request.destroy
+    flash[:notice] = "削除しました"
+    redirect_to requests_path
   end
 end
 

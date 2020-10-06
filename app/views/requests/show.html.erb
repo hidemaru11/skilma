@@ -38,7 +38,7 @@
       <% if user_signed_in? && current_user.id == @request.user.id %>
         <div class="admin_actions">
           <%= link_to "編集", edit_request_path(@request) %>
-          <%= link_to "削除", request_path(@request), method: :delete, data: { confirm: '本当に削除して良いですか？' } %>
+          <%= link_to "削除", request_path(@request), method: :delete, data: { confirm: '削除してよろしいですか？' } %>
         </div>
       <% end %>
     </div>
