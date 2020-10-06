@@ -5,9 +5,12 @@ class RequestsController < ApplicationController
 
   def index
     @requests = Request.all.sorted_desc
-    @request = current_user.requests.build
   end
 
+  def new
+    @request = current_user.requests.build
+  end
+  
   def create
     @requests = Request.all.sorted_desc
     @request = current_user.requests.build(request_params)
