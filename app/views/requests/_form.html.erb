@@ -32,7 +32,11 @@
       </div> -->
     </div>
     <div class="form_area__action">
-      <%= f.submit "投稿する", class: "form_area__action__btn" %>
+      <% if controller.action_name == "index" %>
+        <%= f.submit "投稿する", class: "form_area__action__btn" %>
+      <% elsif controller.action_name == "edit" %>
+        <%= f.submit "保存する", class: "form_area__action__btn" %>
+      <% end %>
     </div>
   <% end %>
 </div>
