@@ -20,7 +20,7 @@
                   <%= link_to request_path(request) do %>
                     <h3><%= request.title %></h3>
                   <% end %>
-                  <p><%= request.content %></p>
+                  <p><%= simple_format request.content %></p>
                 </div>
                 <div class="request__bottom_box">
                   <div class="request__bottom_box__name">

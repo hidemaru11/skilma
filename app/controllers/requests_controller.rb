@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:show]
+  before_action :set_request, only: [:show, :edit, :update]
 
   def index
     @requests = Request.all.sorted_desc
@@ -21,6 +21,15 @@ class RequestsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @request.update(request_params)
+      flash[:notice] = "編集しました"
+      redirect_to request_path
+   else
+     render :edit
+   end
   end
 end
 
