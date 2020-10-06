@@ -3,9 +3,9 @@
     <div class="request_page__header">
       <h1>音楽仲間をさがす</h1>
     </div>
-    <div class="request_form">
-      <h2>新規投稿</h2>
-      <%= render 'form' %>
+    <div class="request_links">
+      <%= link_to "自分の投稿をチェック", root_path %>
+      <%= link_to "投稿はこちらから", new_request_path %>
     </div>
     <div class="request_list">
       <h2>投稿一覧</h2>
