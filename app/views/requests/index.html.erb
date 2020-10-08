@@ -44,6 +44,9 @@
                 <div class="card_bottom__name">
                   <%= link_to request.user.username, root_path %>
                 </div>
+                <div class="card_bottom__area">
+                  <span><%= request.area %></span>
+                </div>
                 <div class="card_bottom__time">
                   <span><%= request.created_at %></span>
                 </div>

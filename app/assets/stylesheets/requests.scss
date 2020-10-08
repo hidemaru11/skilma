@@ -1,5 +1,4 @@
 .request_page {
-  // text-align: center;
 
   &__inner {
     display: flex;
@@ -90,7 +89,9 @@
 
           .card_bottom {
             display: flex;
-
+            font-size: 13px;
+            color: #4f5050;
+            
             &__icon {
               margin-right: 10px;
             }
@@ -98,17 +99,13 @@
             &__name {
               margin-right: 12px;
               a {
-                font-size: 13px;
-                color: #4f5050;
                 &:hover {
                   opacity: 0.5;
                 }
               }
             }
-            &__time {
-              span {
-                font-size: 13px;
-              }
+            &__area {
+              margin-right: 12px;
             }
           }
         }

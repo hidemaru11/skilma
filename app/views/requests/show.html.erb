@@ -1,49 +1,51 @@
-<div class="request_detail_wrapper">
+<div class="request_detail">
   <div class="back_link">
     <%= link_to "一覧に戻る", requests_path %>
   </div>
-  <div class="side">
-    <div class="side__inner">
-      <div class="request_info__user">
-        <div class="user_icon">
-          【ユーザーアイコン】
-        </div>
-        <p class="username"><%= @request.user.username %></p>
-        <div class="request_message">
-          【メッセージを送る】
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="request_datail">
-    <div class="request_datail__top_box">
-      <h1><%= @request.title %></h1>
-      <div class="request_info">
-        <div class="created_time">
-          <span>投稿日時：<%= @request.created_at %></span>
-        </div>
-        <div class="request_info__area">
-          <span>地域：<%= @request.area %></span>
-        </div>
-      </div>
-    </div>  
-    <div class="request_datail__middle_box">
-      <div class="request_content">
-        <div class="request_info__area">
-          <p><%= simple_format @request.content %></p>
+  <div class="request_detail__inner">
+    <div class="side">
+      <div class="side__inner">
+        <div class="request_info__user">
+          <div class="user_icon">
+            【ユーザーアイコン】
+          </div>
+          <p class="username"><%= @request.user.username %></p>
+          <div class="request_message">
+            【メッセージを送る】
+          </div>
         </div>
       </div>
     </div>
-    <div class="request_datail__middle_box">
-      <% if user_signed_in? && current_user.id == @request.user.id %>
-        <div class="admin_actions">
-          <%= link_to "編集", edit_request_path(@request) %>
-          <%= link_to "削除", request_path(@request), method: :delete, data: { confirm: '削除してよろしいですか？' } %>
+    <div class="request_datail_main">
+      <div class="request_datail__top_box">
+        <h1><%= @request.title %></h1>
+        <div class="request_info">
+          <div class="created_time">
+            <span>投稿日時：<%= @request.created_at %></span>
+          </div>
+          <div class="request_info__area">
+            <span>地域：<%= @request.area %></span>
+          </div>
         </div>
-      <% end %>
+      </div>  
+      <div class="request_datail__middle_box">
+        <div class="request_content">
+          <div class="request_info__area">
+            <p><%= simple_format @request.content %></p>
+          </div>
+        </div>
+      </div>
+      <div class="request_datail__middle_box">
+        <% if user_signed_in? && current_user.id == @request.user.id %>
+          <div class="admin_actions">
+            <%= link_to "編集", edit_request_path(@request) %>
+            <%= link_to "削除", request_path(@request), method: :delete, data: { confirm: '削除してよろしいですか？' } %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="request_message">
-    【メッセージを送る】
+    <div class="request_message">
+      【メッセージを送る】
+    </div>
   </div>
 </div>
