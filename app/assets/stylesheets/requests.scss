@@ -3,7 +3,8 @@
 
   &__inner {
     display: flex;
-    margin: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px 0;
 
     .side {
@@ -26,20 +27,17 @@
       }
     }
 
-    .request_lists {
+    .request_main {
       width: 70%;
 
-      .request_page__header {
+      &__header {
         color: $color_theme;
         margin: 0 0 10px 20px;
-      }
-      h1 {
-        color: $color_theme;
       }
 
       .request_links {
         text-align: right;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
 
         .link_small {
           color: $color_theme;
@@ -64,10 +62,56 @@
         }
       } 
 
-      &__inner {
-        padding: 20px;
-        background-color: white;
-        border-bottom: 3px solid #e8e8e8;
+      &__list {
+
+        .request_list_card {
+          margin-bottom: 20px;
+          padding: 20px;
+          background-color: white;
+          border-bottom: 3px solid #e8e8e8;
+
+          .card_top {
+            margin: 0 0 6px;
+            h4 {
+              color: #4f5050;
+              font-size: 17px;
+              font-weight: 700;
+            }
+          }
+
+          .card_middle {
+            margin: 0 0 8px;
+
+            p {
+              font-size: 13px;
+              color: $color_content_light;
+            }
+          }
+
+          .card_bottom {
+            display: flex;
+
+            &__icon {
+              margin-right: 10px;
+            }
+
+            &__name {
+              margin-right: 12px;
+              a {
+                font-size: 13px;
+                color: #4f5050;
+                &:hover {
+                  opacity: 0.5;
+                }
+              }
+            }
+            &__time {
+              span {
+                font-size: 13px;
+              }
+            }
+          }
+        }
       }
     }
   }
