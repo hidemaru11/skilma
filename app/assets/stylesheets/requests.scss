@@ -1,3 +1,74 @@
-// Place all the styles related to the requests controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.request_page {
+  // text-align: center;
+
+  &__inner {
+    display: flex;
+    margin: 0 20px;
+    padding: 20px 0;
+
+    .side {
+      width: 290px;
+      margin-right: 50px;
+      box-sizing: border-box;
+
+      &_searchBox__inner {
+        padding: 20px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+
+        .search_tag {
+          margin: 20px 0 0;
+        }
+      }
+      h4 {
+        font-size: $font_size_h4;
+        font-weight: 700;
+      }
+    }
+
+    .request_lists {
+      width: 70%;
+
+      .request_page__header {
+        color: $color_theme;
+        margin: 0 0 10px 20px;
+      }
+      h1 {
+        color: $color_theme;
+      }
+
+      .request_links {
+        text-align: right;
+        margin-bottom: 20px;
+
+        .link_small {
+          color: $color_theme;
+          margin-right: 10px;
+          font-size: 13px;
+          &:hover {
+            color: $color_note;
+          }
+        }
+
+        .btn {
+          display: inline-block;
+          padding: 7px 25px;
+          background-color: white;
+          color: $color_theme;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-align: center;
+          border: 2px solid $color_theme;
+          border-radius: 40px;
+          cursor: pointer;
+        }
+      } 
+
+      &__inner {
+        padding: 20px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+      }
+    }
+  }
+}

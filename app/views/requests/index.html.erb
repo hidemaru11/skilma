@@ -1,45 +1,65 @@
 <div class="request_page">
   <div class="request_page__inner">
-    <div class="request_page__header">
-      <h1>音楽仲間をさがす</h1>
+    <div class="side">
+      <div class="side_searchBox__inner">
+        <div class="search_key">
+          <h4>キーワードで検索する</h4>
+          <div class="search_form">
+            input_form
+          </div>
+        </div>
+        <div class="search_tag">
+          <h4>タグ</h4>
+          <div class="search_form">
+            input_form
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="request_links">
-      <%= link_to "自分の投稿をチェック", root_path %>
-      <%= link_to "投稿はこちらから", new_request_path %>
-    </div>
-    <div class="request_list">
-      <h2>投稿一覧</h2>
-      <ul>
-        <li>
-          <% if @requests.present? %>
-            <% @requests.each do |request| %>
-              <div class="request">
-                <div class="request__top_box">
-                </div>
-                <div class="request__middle_box">
-                  <%= link_to request_path(request) do %>
-                    <h3><%= request.title %></h3>
-                  <% end %>
-                  <p><%= simple_format request.content %></p>
-                </div>
-                <div class="request__bottom_box">
-                  <div class="request__bottom_box__name">
-                    <span>投稿者：<%= request.user.username %></span>
+
+    <div class="request_lists">
+      <div class="request_page__header">
+        <h1>音楽仲間をさがす</h1>
+      </div>
+      <div class="request_links">
+        <%= link_to "自分の投稿をチェック", root_path, class: "link_small" %>
+        <%= link_to "投稿はこちらから", new_request_path, class: "btn" %>
+      </div>
+      <div class="request_lists__inner">
+        <div class="request_list">
+          <ul>
+            <li>
+              <% if @requests.present? %>
+                <% @requests.each do |request| %>
+                  <div class="request">
+                    <div class="request__top_box">
+                    </div>
+                    <div class="request__middle_box">
+                      <%= link_to request_path(request) do %>
+                        <h3><%= request.title %></h3>
+                      <% end %>
+                      <p><%= simple_format request.content %></p>
+                    </div>
+                    <div class="request__bottom_box">
+                      <div class="request__bottom_box__name">
+                        <span>投稿者：<%= request.user.username %></span>
+                      </div>
+                      <div class="request__bottom_box__time">
+                        <span>投稿日時：<%= request.created_at %></span>
+                      </div>
+                      <div class="request__bottom_box__area">
+                        <span>地域：<%= request.area %></span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="request__bottom_box__time">
-                    <span>投稿日時：<%= request.created_at %></span>
-                  </div>
-                  <div class="request__bottom_box__area">
-                    <span>地域：<%= request.area %></span>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          <% else %>
-            <h4>まだ投稿されたスレッドはありません。</h4>
-          <% end %>
-        </li>
-      </ul>
+                <% end %>
+              <% else %>
+                <h4>まだ投稿されたスレッドはありません。</h4>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
