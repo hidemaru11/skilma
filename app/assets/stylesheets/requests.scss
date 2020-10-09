@@ -1,6 +1,6 @@
 .request_page {
 
-  &__inner {
+  &__index {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
@@ -112,4 +112,92 @@
       }
     }
   }
+  // リクエスト詳細ページ
+  .back_link {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__show {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    .side {
+      position: sticky;
+      top: 120px;
+      width: 25%;
+      margin-right: 50px;
+      box-sizing: border-box;
+      text-align: center;
+      z-index: 1;
+      height: 100vh;
+
+      &__inner {
+        padding: 20px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+
+        .user_icon {
+          width: 125px;
+          height: 125px;
+          margin: 0 auto 10px;
+          line-height: 125px;
+          background-color: #ddd;
+          border-radius: 50%;
+        }
+
+        .username {
+          font-size: 18px;
+          font-weight: 700;
+          a {
+            color: $color_theme;
+            &:hover {
+              color: #ccc;
+            }
+          }
+        }
+
+        .link {
+          margin: 14px auto;
+          a {
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            padding: 6px 0;
+            border: 2px solid $color_theme;
+            border-radius: 40px;
+            font-size: 15px;
+            font-weight: 700;
+            &:hover {
+              color: white;
+              background-color: $color_theme;
+            }
+          }
+
+        }
+        .follow {
+          a {
+            color: $color_theme;
+            &:hover {
+              color: white;
+              background-color: $color_theme;
+            }
+          }
+        }
+
+        .message {
+          margin-top: 20px;
+          a {
+            color: white;
+            background-color: $color_theme;
+          }
+        }
+      }
+    }
+  }
 }
+
+

@@ -1,51 +1,52 @@
-<div class="request_detail">
+<div class="request_page">
   <div class="back_link">
     <%= link_to "一覧に戻る", requests_path %>
   </div>
-  <div class="request_detail__inner">
+  <div class="request_page__show">
     <div class="side">
       <div class="side__inner">
-        <div class="request_info__user">
-          <div class="user_icon">
-            【ユーザーアイコン】
-          </div>
-          <p class="username"><%= @request.user.username %></p>
-          <div class="request_message">
-            【メッセージを送る】
-          </div>
+        <div class="user_icon">
+          【アイコン】
+        </div>
+        <p class="username"><%= link_to @request.user.username, root_path %></p>
+        <div class="link follow">
+          <%= link_to "フォローする", root_path %>
+        </div>
+        <div class="link message">
+          <%= link_to "メッセージを送る", root_path %>
         </div>
       </div>
     </div>
-    <div class="request_datail_main">
-      <div class="request_datail__top_box">
-        <h1><%= @request.title %></h1>
-        <div class="request_info">
-          <div class="created_time">
-            <span>投稿日時：<%= @request.created_at %></span>
+    <div class="request_show_main">
+      <div class="main_inner">
+        <div class="main_top">
+          <h1 class="title"><%= @request.title %></h1>
+          <div class="main_top__info">
+            <div class="area">
+              <span><%= @request.area %></span>
+            </div>
+            <div class="created_time">
+              <span><%= @request.created_at %></span>
+            </div>
           </div>
-          <div class="request_info__area">
-            <span>地域：<%= @request.area %></span>
+        </div>  
+        <div class="main_middle">
+          <div class="content">
+            <%= simple_format @request.content %>
           </div>
         </div>
-      </div>  
-      <div class="request_datail__middle_box">
-        <div class="request_content">
-          <div class="request_info__area">
-            <p><%= simple_format @request.content %></p>
-          </div>
+        <div class="request_datail__middle_box">
+          <% if user_signed_in? && current_user.id == @request.user.id %>
+            <div class="admin_actions">
+              <%= link_to "編集", edit_request_path(@request) %>
+              <%= link_to "削除", request_path(@request), method: :delete, data: { confirm: '削除してよろしいですか？' } %>
+            </div>
+          <% end %>
         </div>
       </div>
-      <div class="request_datail__middle_box">
-        <% if user_signed_in? && current_user.id == @request.user.id %>
-          <div class="admin_actions">
-            <%= link_to "編集", edit_request_path(@request) %>
-            <%= link_to "削除", request_path(@request), method: :delete, data: { confirm: '削除してよろしいですか？' } %>
-          </div>
-        <% end %>
+      <div class="request_message">
+        【メッセージを送る】
       </div>
-    </div>
-    <div class="request_message">
-      【メッセージを送る】
     </div>
   </div>
 </div>
