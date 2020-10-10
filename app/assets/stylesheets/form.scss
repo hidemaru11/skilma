@@ -1,0 +1,56 @@
+.form_area {
+  &_inner {
+    padding: 30px;
+    margin-bottom: 20px;
+    background-color: white;
+
+    .field {
+      margin-bottom: 20px;
+
+      .field_input {
+        
+        label {
+          font-weight: 700;
+          display: inline-block;
+          margin-bottom: 10px;
+        }
+        input {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          color: $color_input;
+          font-size: 15px;
+        }
+        textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          color: $color_input;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
+  .action {
+    text-align: center;
+    margin-top: 50px;
+
+    .btn {
+      display: inline-block;
+      width: 200px;
+      padding: 10px 30px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: $color_theme;
+      background-color: white;
+      border: 2px solid $color_theme;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}

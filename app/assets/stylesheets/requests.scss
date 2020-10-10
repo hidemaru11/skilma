@@ -1,3 +1,376 @@
-// Place all the styles related to the requests controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.request_page {
+
+  .link {
+    margin: 14px auto;
+    a {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      padding: 6px 0;
+      border: 2px solid $color_theme;
+      border-radius: 40px;
+      font-size: 15px;
+      font-weight: 700;
+      &:hover {
+        color: white;
+        background-color: $color_theme;
+      }
+    }
+  }
+
+  .back_link {
+    a {
+      color: $color_theme;
+      font-size: 15px;
+      &:hover {
+        color: $color_hover;
+      }
+    }
+  }
+
+  &__index {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    .side {
+      width: 290px;
+      box-sizing: border-box;
+
+      &_searchBox__inner {
+        padding: 20px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+
+        .search_tag {
+          margin: 20px 0 0;
+        }
+      }
+      h4 {
+        font-size: $font_size_h4;
+        font-weight: 700;
+      }
+    }
+
+    .request_main {
+      margin-left: 5%;
+      width: 70%;
+
+      &__header {
+        color: $color_theme;
+        margin: 0 0 10px 20px;
+      }
+
+      .request_links {
+        text-align: right;
+        margin-bottom: 10px;
+
+        .link_small {
+          color: $color_theme;
+          margin-right: 10px;
+          font-size: 13px;
+          &:hover {
+            color: $color_hover;
+          }
+        }
+
+        .new {
+          display: inline-block;
+          padding: 7px 25px;
+          background-color: white;
+          color: $color_theme;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-align: center;
+          border: 2px solid $color_theme;
+          border-radius: 40px;
+          cursor: pointer;
+          &:hover {
+            color: white;
+            background-color: $color_theme;
+          }
+        }
+      } 
+
+      &__list {
+
+        .request_list_card {
+          margin-bottom: 20px;
+          padding: 20px;
+          background-color: white;
+          border-bottom: 3px solid #e8e8e8;
+
+          .card_top {
+            margin: 0 0 6px;
+            h4 {
+              color: #4f5050;
+              font-size: 17px;
+              font-weight: 700;
+              &:hover {
+                color: $color_hover;
+              }
+            }
+          }
+
+          .card_middle {
+            margin: 0 0 8px;
+            width: 500px;
+            max-height: 140px;
+            overflow: hidden;
+
+            p {
+              font-size: 13px;
+              color: $color_content_light;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 7;
+            }
+          }
+
+          .card_bottom {
+            display: flex;
+            font-size: 13px;
+            color: #4f5050;
+            
+            &__icon {
+              margin-right: 10px;
+            }
+
+            &__name {
+              margin-right: 12px;
+              a {
+                &:hover {
+                  opacity: 0.5;
+                }
+              }
+            }
+            &__area {
+              margin-right: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+  // リクエスト詳細ページ
+  .back_link {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__show {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    .side {
+      position: sticky;
+      top: 120px;
+      width: 25%;
+      box-sizing: border-box;
+      text-align: center;
+      z-index: 1;
+      height: 100vh;
+
+      &__inner {
+        padding: 20px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+
+        .user_icon {
+          width: 125px;
+          height: 125px;
+          margin: 0 auto 10px;
+          line-height: 125px;
+          background-color: #ddd;
+          border-radius: 50%;
+        }
+
+        .username {
+          font-size: 18px;
+          font-weight: 700;
+          a {
+            color: $color_theme;
+            &:hover {
+              color: $color_hover;
+            }
+          }
+        }
+
+        .follow {
+          a {
+            color: $color_theme;
+            &:hover {
+              color: white;
+              background-color: $color_theme;
+            }
+          }
+        }
+
+        .message {
+          margin-top: 20px;
+          a {
+            color: white;
+            background-color: $color_theme;
+          }
+        }
+      }
+    }
+
+    .request_show_main {
+      margin-left: 5%;
+      width: 70%;
+
+      .main_inner {
+        padding: 30px;
+        margin-bottom: 20px;
+        background-color: white;
+
+        .main_top {
+          margin-bottom: 20px;
+
+          .tags {
+            padding: 4px 8px;
+            font-size: .7rem;
+            background: #f1f1f1;
+            color: $color_theme;
+            margin-right: 5px;
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+
+          .title {
+            padding: 8px 0;
+            font-size: $font_size_h2;
+            font-weight: 700;
+            color: #4f5050;
+          }
+
+          .info {
+            font-size: 14px;
+            color: #333;
+
+            .area {
+              margin-right: 10px;
+            }
+          }
+        }
+
+        .main_middle {
+          margin-bottom: 40px;
+
+          .content {
+            font-size: 15px;
+          }
+        }
+
+        .main_bottom {
+          .admin_actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 20px;
+            
+            .edit_link {
+              margin-right: 10px;
+              padding: 4px 10px;
+              border: 1px solid $color_theme;
+              border-radius: 30px;
+              color: $color_theme;
+              font-size: 13px;
+              &:hover {
+                color: white;
+                background-color: $color_theme;
+              }
+            }
+
+            .delete_link {
+              padding: 4px 10px;
+              border: 1px solid $color_theme;
+              border-radius: 30px;
+              color: $color_note;
+              font-size: 13px;
+              &:hover {
+                opacity: 0.6;
+              }
+            }
+          }
+        }
+      }
+
+      .request_message {
+        margin-top: 40px;
+        .link {
+          width: 240px;
+          text-align: center;
+          a {
+            display: inline-block;
+            color: white;
+            background-color: $color_theme;
+          }
+        }
+      }
+    }
+  }
+
+  // 投稿フォーム
+  &__form {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    .side {
+      width: 290px;
+      box-sizing: border-box;
+      text-align: center;
+      z-index: 1;
+      height: 100vh;
+
+      &__inner {
+        padding: 20px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+
+        .user_icon {
+          width: 125px;
+          height: 125px;
+          margin: 0 auto 10px;
+          line-height: 125px;
+          background-color: #ddd;
+          border-radius: 50%;
+        }
+
+        .username {
+          font-size: 18px;
+          font-weight: 700;
+          a {
+            color: $color_theme;
+            &:hover {
+              color: $color_hover;
+            }
+          }
+        }
+      }
+    }
+
+    .request_form_main {
+      margin-left: 5%;
+      width: 70%;
+
+      .form_header {
+        margin-bottom: 15px;
+        h4 {
+          color: $color_theme;
+          font-size: 22px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+

@@ -18,7 +18,7 @@ class RequestsController < ApplicationController
       flash[:notice] = "投稿しました"
       redirect_to requests_path
     else
-      render :index, collection: @requests
+      render :new
     end
   end
 

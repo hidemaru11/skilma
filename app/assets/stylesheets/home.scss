@@ -1,0 +1,13 @@
+.main_view {
+  width: 90%;
+  margin: 0 auto;
+  &__catch {
+    & h2 {
+      color: $color_theme;
+      font-weight: 700;
+    }
+    & p {
+      padding: 5px;
+    }
+  }
+}

@@ -1,23 +1,23 @@
 <div class="form_area">
   <%= form_with model: @request, local: true do |f| %>
-    <div class="form_area__inner">
+    <div class="form_area_inner">
       <%= render 'layouts/error_messages', model: f.object %>
-      <div class="form_area__field">
-        <div class="form_area__field_input">
+      <div class="field">
+        <div class="field_input">
           <%= f.label :title, "タイトル" %><br>
           <%= f.text_field :title, autofocus: true, autocomplete: "content" %>
         </div>
       </div>
 
-      <div class="form_area__field">
-        <div class="form_area__field_input">
+      <div class="field">
+        <div class="field_input">
           <%= f.label :content, "募集内容" %><br>
           <%= f.text_area :content, rows: 10, autofocus: true, autocomplete: "content" %>
         </div>
       </div>
 
-      <div class="form_area__field">
-        <div class="form_area__field_input">
+      <div class="field">
+        <div class="field_input">
           <%= f.label :area, "地域" %><br>
           <%= f.text_field :area, autofocus: true, autocomplete: "area" %>
         </div>
@@ -31,7 +31,7 @@
         </div>
       </div> -->
     </div>
-    <div class="form_area__action">
+    <div class="action">
       <%= f.submit class: "btn" %>
     </div>
   <% end %>

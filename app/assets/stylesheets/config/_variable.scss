@@ -1,8 +1,11 @@
-$fix_width: 980px;
+$fix_width: 1200px;
 $color_theme: #3aabba;
 $color_theme_opacity: #58d7e8;
 $color_background: #f4f8fa;
+$color_content: #333;
+$color_content_light: #666;
 $color_note: #878787;
+$color_hover: #ccc;
 $color_input: #555;
 $color_alert_light: #fff2f2;
 $color_notice: #58d7e8;
@@ -13,4 +16,3 @@ $font_size_h3: 1.5rem;
 $font_size_h4: 1.2rem;
 $font_size_defalt: 16px;
 $font_size_note: 12px;
-$border_style_input: 1px solid #ddd;
