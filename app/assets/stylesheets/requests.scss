@@ -36,7 +36,6 @@
 
     .side {
       width: 290px;
-      margin-right: 50px;
       box-sizing: border-box;
 
       &_searchBox__inner {
@@ -55,6 +54,7 @@
     }
 
     .request_main {
+      margin-left: 5%;
       width: 70%;
 
       &__header {
@@ -311,6 +311,62 @@
             color: white;
             background-color: $color_theme;
           }
+        }
+      }
+    }
+  }
+
+  // 投稿フォーム
+  &__form {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    .side {
+      width: 290px;
+      box-sizing: border-box;
+      text-align: center;
+      z-index: 1;
+      height: 100vh;
+
+      &__inner {
+        padding: 20px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+
+        .user_icon {
+          width: 125px;
+          height: 125px;
+          margin: 0 auto 10px;
+          line-height: 125px;
+          background-color: #ddd;
+          border-radius: 50%;
+        }
+
+        .username {
+          font-size: 18px;
+          font-weight: 700;
+          a {
+            color: $color_theme;
+            &:hover {
+              color: $color_hover;
+            }
+          }
+        }
+      }
+    }
+
+    .request_form_main {
+      margin-left: 5%;
+      width: 70%;
+
+      .form_header {
+        margin-bottom: 15px;
+        h4 {
+          color: $color_theme;
+          font-size: 22px;
+          font-weight: 700;
         }
       }
     }
