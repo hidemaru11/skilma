@@ -27,7 +27,7 @@
           <h2 class="title"><%= @request.title %></h2>
           <div class="info">
             <span class="area"><%= @request.area %></span>
-            <span class="created_time"><%= @request.created_at %></span>
+            <span class="created_time"><%= time_ago_in_words(@request.created_at)+"前" %></span>
           </div>
         </div>  
         <div class="main_middle">

@@ -48,7 +48,7 @@
                   <span><%= request.area %></span>
                 </div>
                 <div class="card_bottom__time">
-                  <span><%= request.created_at %></span>
+                  <span><%= time_ago_in_words(request.created_at)+"前" %></span>
                 </div>
               </div>
             </div>
