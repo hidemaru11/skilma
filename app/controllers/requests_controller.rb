@@ -12,7 +12,6 @@ class RequestsController < ApplicationController
   end
   
   def create
-    @requests = Request.all.sorted_desc
     @request = current_user.requests.build(request_params)
     if @request.save
       flash[:notice] = "投稿しました"

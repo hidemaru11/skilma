@@ -1,4 +1,4 @@
-.request_page {
+.contents {
 
   .link {
     margin: 14px auto;
@@ -19,6 +19,9 @@
   }
 
   .back_link {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     a {
       color: $color_theme;
       font-size: 15px;
@@ -28,17 +31,17 @@
     }
   }
 
-  &__index {
+  &_inner {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 0;
 
-    .side {
+    .side_search {
       width: 290px;
       box-sizing: border-box;
 
-      &_searchBox__inner {
+      &_inner {
         padding: 20px;
         background-color: white;
         border-bottom: 3px solid #e8e8e8;
@@ -53,16 +56,78 @@
       }
     }
 
-    .request_main {
+    .side_user {
+      position: sticky;
+      top: 120px;
+      width: 25%;
+      box-sizing: border-box;
+      text-align: center;
+      z-index: 1;
+      height: 100vh;
+  
+      &_inner {
+        padding: 20px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+  
+        .user_icon {
+          width: 125px;
+          height: 125px;
+          margin: 0 auto 10px;
+          line-height: 125px;
+          background-color: #ddd;
+          border-radius: 50%;
+        }
+  
+        .username {
+          font-size: 18px;
+          font-weight: 700;
+          a {
+            color: $color_theme;
+            &:hover {
+              color: $color_hover;
+            }
+          }
+        }
+  
+        .follow {
+          a {
+            color: $color_theme;
+            &:hover {
+              color: white;
+              background-color: $color_theme;
+            }
+          }
+        }
+  
+        .message {
+          margin-top: 20px;
+          a {
+            color: white;
+            background-color: $color_theme;
+          }
+        }
+      }
+    }
+
+    .main {
       margin-left: 5%;
       width: 70%;
 
-      &__header {
+      &_header {
         color: $color_theme;
         margin: 0 0 10px 20px;
+        &_bold {
+          margin-bottom: 15px;
+          h4 {
+            color: $color_theme;
+            font-size: 22px;
+            font-weight: 700;
+          }
+        }
       }
 
-      .request_links {
+      .links {
         text-align: right;
         margin-bottom: 10px;
 
@@ -93,9 +158,8 @@
         }
       } 
 
-      &__list {
-
-        .request_list_card {
+      &_list {
+        .list_card {
           margin-bottom: 20px;
           padding: 20px;
           background-color: white;
@@ -133,103 +197,32 @@
             font-size: 13px;
             color: #4f5050;
             
-            &__icon {
+            &_icon {
               margin-right: 10px;
             }
 
-            &__name {
+            &_name {
               margin-right: 12px;
               a {
+                color: #4f5050;
                 &:hover {
                   opacity: 0.5;
                 }
               }
             }
-            &__area {
+            &_area {
               margin-right: 12px;
             }
           }
         }
       }
-    }
-  }
-  // リクエスト詳細ページ
-  .back_link {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
 
-  &__show {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
-
-    .side {
-      position: sticky;
-      top: 120px;
-      width: 25%;
-      box-sizing: border-box;
-      text-align: center;
-      z-index: 1;
-      height: 100vh;
-
-      &__inner {
-        padding: 20px;
-        background-color: white;
-        border-bottom: 3px solid #e8e8e8;
-
-        .user_icon {
-          width: 125px;
-          height: 125px;
-          margin: 0 auto 10px;
-          line-height: 125px;
-          background-color: #ddd;
-          border-radius: 50%;
-        }
-
-        .username {
-          font-size: 18px;
-          font-weight: 700;
-          a {
-            color: $color_theme;
-            &:hover {
-              color: $color_hover;
-            }
-          }
-        }
-
-        .follow {
-          a {
-            color: $color_theme;
-            &:hover {
-              color: white;
-              background-color: $color_theme;
-            }
-          }
-        }
-
-        .message {
-          margin-top: 20px;
-          a {
-            color: white;
-            background-color: $color_theme;
-          }
-        }
-      }
-    }
-
-    .request_show_main {
-      margin-left: 5%;
-      width: 70%;
-
-      .main_inner {
+      &_detail {
         padding: 30px;
         margin-bottom: 20px;
         background-color: white;
 
-        .main_top {
+        .detail_top {
           margin-bottom: 20px;
 
           .tags {
@@ -260,7 +253,7 @@
           }
         }
 
-        .main_middle {
+        .detail_middle {
           margin-bottom: 40px;
 
           .content {
@@ -268,7 +261,7 @@
           }
         }
 
-        .main_bottom {
+        .detail_bottom {
           .admin_actions {
             display: flex;
             justify-content: flex-end;
@@ -301,7 +294,7 @@
         }
       }
 
-      .request_message {
+      .message_wrapper {
         margin-top: 40px;
         .link {
           width: 240px;
@@ -311,62 +304,6 @@
             color: white;
             background-color: $color_theme;
           }
-        }
-      }
-    }
-  }
-
-  // 投稿フォーム
-  &__form {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
-
-    .side {
-      width: 290px;
-      box-sizing: border-box;
-      text-align: center;
-      z-index: 1;
-      height: 100vh;
-
-      &__inner {
-        padding: 20px;
-        background-color: white;
-        border-bottom: 3px solid #e8e8e8;
-
-        .user_icon {
-          width: 125px;
-          height: 125px;
-          margin: 0 auto 10px;
-          line-height: 125px;
-          background-color: #ddd;
-          border-radius: 50%;
-        }
-
-        .username {
-          font-size: 18px;
-          font-weight: 700;
-          a {
-            color: $color_theme;
-            &:hover {
-              color: $color_hover;
-            }
-          }
-        }
-      }
-    }
-
-    .request_form_main {
-      margin-left: 5%;
-      width: 70%;
-
-      .form_header {
-        margin-bottom: 15px;
-        h4 {
-          color: $color_theme;
-          font-size: 22px;
-          font-weight: 700;
         }
       }
     }
