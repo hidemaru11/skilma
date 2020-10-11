@@ -24,7 +24,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :content, :area)
+    params.require(:job).permit(:title, :content, :area, :budget)
   end
 
   def set_job
