@@ -1,7 +1,7 @@
-<div class="request_page">
-  <div class="request_page__index">
-    <div class="side">
-      <div class="side_searchBox__inner">
+<div class="contents">
+  <div class="contents_inner">
+    <div class="side_search">
+      <div class="side_search_inner">
         <div class="search_key">
           <h4>キーワードで検索する</h4>
           <div class="search_form">
@@ -17,18 +17,18 @@
       </div>
     </div>
 
-    <div class="request_main">
-      <div class="request_main__header">
+    <div class="main">
+      <div class="main_header">
         <h1>音楽仲間をさがす</h1>
       </div>
-      <div class="request_links">
+      <div class="links">
         <%= link_to "自分の投稿をチェック", root_path, class: "link_small" %>
         <%= link_to "投稿はこちらから", new_request_path, class: "new" %>
       </div>
-      <div class="request_main__list">
+      <div class="main_list">
         <% if @requests.present? %>
           <% @requests.each do |request| %>
-            <div class="request_list_card">
+            <div class="list_card">
               <div class="card_top">
                 <%= link_to request_path(request) do %>
                   <h4><%= request.title %></h4>
@@ -38,16 +38,16 @@
                 <p><%= simple_format request.content %></p>
               </div>
               <div class="card_bottom">
-                <div class="card_bottom__icon">
+                <div class="card_bottom_icon">
                   <span>アイコン</span>
                 </div>
-                <div class="card_bottom__name">
+                <div class="card_bottom_name">
                   <%= link_to request.user.username, root_path %>
                 </div>
-                <div class="card_bottom__area">
+                <div class="card_bottom_area">
                   <span><%= request.area %></span>
                 </div>
-                <div class="card_bottom__time">
+                <div class="card_bottom_time">
                   <span><%= time_ago_in_words(request.created_at)+"前" %></span>
                 </div>
               </div>
