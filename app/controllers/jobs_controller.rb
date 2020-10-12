@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
-  before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit]
 
   def index
@@ -21,6 +21,9 @@ class JobsController < ApplicationController
     end
   end
 
+  def show
+  end
+  
   private
 
   def job_params

@@ -58,7 +58,15 @@
                   <div class="card_inner">
                     <div class="text">予算</div>
                     <div class="icon">【￥】</div>
-                    <div class="value"><p><%= job.budget %>円／<%= job.budget_unit.name %></p></div>
+                    <div class="value">
+                      <p>
+                        <%= job.budget.to_s(:delimited) %>円
+                          <% if job.budget_unit.name != "" %>
+                          ／
+                          <% end %>
+                        <%= job.budget_unit.name %>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
