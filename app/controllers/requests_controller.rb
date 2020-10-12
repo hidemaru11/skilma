@@ -57,6 +57,6 @@ private
     set_request
     if current_user.id != @request.user.id
       flash[:notice] = "アクセス権限がありません"
-      redirect_to root_path
+      redirect_to requests_path
     end
   end

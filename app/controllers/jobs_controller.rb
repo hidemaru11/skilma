@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
-  before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit]
 
   def index
@@ -21,6 +21,27 @@ class JobsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @job.update(job_params)
+      flash[:notice] = "編集しました"
+      redirect_to job_path
+   else
+     render :edit
+   end
+  end
+
+  def destroy
+    @job.destroy
+    flash[:notice] = "削除しました"
+    redirect_to jobs_path
+  end
+
   private
 
   def job_params
@@ -35,7 +56,7 @@ class JobsController < ApplicationController
     set_job
     if current_user.id != @job.user.id
       flash[:notice] = "アクセス権限がありません"
-      redirect_to root_path
+      redirect_to jobs_path
     end
   end
 end
