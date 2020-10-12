@@ -1,2 +1,77 @@
-<h1>Jobs#index</h1>
-<p>Find me in app/views/jobs/index.html.erb</p>
+<div class="contents">
+  <div class="contents_inner">
+    <div class="side_search">
+      <div class="side_search_inner">
+        <div class="search_key">
+          <h4>キーワードで検索する</h4>
+          <div class="search_form">
+            input_form
+          </div>
+        </div>
+        <div class="search_tag">
+          <h4>タグ</h4>
+          <div class="search_form">
+            input_form
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main_header">
+        <h1>仕事を依頼する</h1>
+      </div>
+      <div class="links">
+        <%= link_to "自分の投稿をチェック", root_path, class: "link_small" %>
+        <%= link_to "投稿はこちらから", new_job_path, class: "new" %>
+      </div>
+      <div class="main_list">
+        <% if @jobs.present? %>
+          <% @jobs.each do |job| %>
+            <div class="list_card">
+              <div class="list_card_price">
+                <div class="left">
+                  <div class="card_top">
+                    <%= link_to job_path(job) do %>
+                      <h4><%= job.title %></h4>
+                    <% end %>
+                  </div>
+                  <div class="card_middle">
+                    <%= simple_format job.content %>
+                  </div>
+                  <div class="card_bottom">
+                    <div class="card_bottom_icon">
+                      <span>アイコン</span>
+                    </div>
+                    <div class="card_bottom_name">
+                      <%= link_to job.user.username, root_path %>
+                    </div>
+                    <div class="card_bottom_area">
+                      <span><%= job.area %></span>
+                    </div>
+                    <div class="card_bottom_time">
+                      <span><%= time_ago_in_words(job.created_at)+"前" %></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="right">
+                  <div class="card_inner">
+                    <div class="text">予算</div>
+                    <div class="icon">【￥】</div>
+                    <div class="value"><p><%= job.budget %>円／<%= job.budget_unit.name %></p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="list_card">
+            <div class="alert">
+              <h4>まだ投稿されたスレッドはありません。</h4>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

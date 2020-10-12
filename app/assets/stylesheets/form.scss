@@ -30,6 +30,15 @@
           color: $color_input;
           font-size: 15px;
         }
+        .price {
+          width: 100px;
+        }
+        select {
+          padding: 10px;
+          border: 1px solid #ddd;
+          color: $color_input;
+          font-size: 15px;
+        }
       }
     }
   }

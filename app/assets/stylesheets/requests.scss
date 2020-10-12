@@ -164,6 +164,36 @@
           padding: 20px;
           background-color: white;
           border-bottom: 3px solid #e8e8e8;
+          
+          &_price {
+            display: flex;
+            align-items: center;
+          }
+
+          .left {
+            width: 70%;
+            margin-right: 10px;
+          }
+
+          .right {
+            margin-right: 80px;
+            .card_inner {
+              width: 100px;
+              padding: 10px;
+              border: 3px solid #f4f8fa;
+              background: #f4f8fa;
+              border-radius: 10px;
+              text-align: center;
+              font-size: 13px;
+              .text {
+                margin-bottom: 10px;
+              }
+              .value {
+                margin-top: 10px;
+                font-weight: 700;
+              }
+            }
+          }
 
           .card_top {
             margin: 0 0 6px;
@@ -179,9 +209,10 @@
 
           .card_middle {
             margin: 0 0 8px;
-            width: 500px;
             max-height: 140px;
             overflow: hidden;
+            display: flex;
+            justify-content: space-between;
 
             p {
               font-size: 13px;
@@ -212,6 +243,15 @@
             }
             &_area {
               margin-right: 12px;
+            }
+          }
+
+          .alert {
+            text-align: center;
+            h4 {
+              color: #fd5050;
+              font-size: 15px;
+              font-weight: 700;
             }
           }
         }
