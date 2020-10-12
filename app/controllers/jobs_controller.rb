@@ -23,7 +23,19 @@ class JobsController < ApplicationController
 
   def show
   end
-  
+
+  def edit
+  end
+
+  def update
+    if @job.update(job_params)
+      flash[:notice] = "編集しました"
+      redirect_to job_path
+   else
+     render :edit
+   end
+  end
+
   private
 
   def job_params

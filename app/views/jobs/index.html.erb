@@ -60,11 +60,15 @@
                     <div class="icon">【￥】</div>
                     <div class="value">
                       <p>
-                        <%= job.budget.to_s(:delimited) %>円
-                          <% if job.budget_unit.name != "" %>
-                          ／
-                          <% end %>
-                        <%= job.budget_unit.name %>
+                        <% if job.budget %>
+                          <%= job.budget.to_s(:delimited) %>円
+                            <% if job.budget_unit.name != "" %>
+                            ／
+                            <% end %>
+                          <%= job.budget_unit.name %>
+                        <% else %>
+                          -
+                        <% end %>
                       </p>
                     </div>
                   </div>

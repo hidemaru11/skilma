@@ -31,7 +31,7 @@
           <span id="price_unit">
             円／
           </span>
-          <%= f.select :budget_unit_id, options_from_collection_for_select(BudgetUnit.all, :id, :name, include_blank: "", required: false) %>
+          <%= f.select :budget_unit_id, options_from_collection_for_select(BudgetUnit.all, :id, :name, { include_blank: true, required: false, selected: @job.budget_unit_id }) %>
         </div>
       </div>
     </div>
