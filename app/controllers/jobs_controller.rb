@@ -36,6 +36,12 @@ class JobsController < ApplicationController
    end
   end
 
+  def destroy
+    @job.destroy
+    flash[:notice] = "削除しました"
+    redirect_to jobs_path
+  end
+
   private
 
   def job_params
@@ -50,7 +56,7 @@ class JobsController < ApplicationController
     set_job
     if current_user.id != @job.user.id
       flash[:notice] = "アクセス権限がありません"
-      redirect_to root_path
+      redirect_to jobs_path
     end
   end
 end
