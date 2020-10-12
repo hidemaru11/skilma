@@ -30,7 +30,8 @@
           <%= f.number_field :budget, min: 500, max: 300000, step: 100, autofocus: true, autocomplete: "budget", class: "price" %>
           <span id="price_unit">
             円／
-          </span><input class="price">
+          </span>
+          <%= f.select :budget_unit_id, options_from_collection_for_select(BudgetUnit.all, :id, :name, include_blank: "", required: false) %>
         </div>
       </div>
     </div>

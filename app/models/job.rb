@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
   belongs_to :user
+  belongs_to :budget_unit
 
   validates :title, length: { in: 3..100 }
   validates :content, length: { in: 3..1000 }

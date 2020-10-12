@@ -29,26 +29,37 @@
         <% if @jobs.present? %>
           <% @jobs.each do |job| %>
             <div class="list_card">
-              <div class="card_top">
-                <%= link_to job_path(job) do %>
-                  <h4><%= job.title %></h4>
-                <% end %>
-              </div>
-              <div class="card_middle">
-                <p><%= simple_format job.content %></p>
-              </div>
-              <div class="card_bottom">
-                <div class="card_bottom_icon">
-                  <span>アイコン</span>
+              <div class="list_card_price">
+                <div class="left">
+                  <div class="card_top">
+                    <%= link_to job_path(job) do %>
+                      <h4><%= job.title %></h4>
+                    <% end %>
+                  </div>
+                  <div class="card_middle">
+                    <%= simple_format job.content %>
+                  </div>
+                  <div class="card_bottom">
+                    <div class="card_bottom_icon">
+                      <span>アイコン</span>
+                    </div>
+                    <div class="card_bottom_name">
+                      <%= link_to job.user.username, root_path %>
+                    </div>
+                    <div class="card_bottom_area">
+                      <span><%= job.area %></span>
+                    </div>
+                    <div class="card_bottom_time">
+                      <span><%= time_ago_in_words(job.created_at)+"前" %></span>
+                    </div>
+                  </div>
                 </div>
-                <div class="card_bottom_name">
-                  <%= link_to job.user.username, root_path %>
-                </div>
-                <div class="card_bottom_area">
-                  <span><%= job.area %></span>
-                </div>
-                <div class="card_bottom_time">
-                  <span><%= time_ago_in_words(job.created_at)+"前" %></span>
+                <div class="right">
+                  <div class="card_inner">
+                    <div class="text">予算</div>
+                    <div class="icon">【￥】</div>
+                    <div class="value"><p><%= job.budget %>円／<%= job.budget_unit.name %></p></div>
+                  </div>
                 </div>
               </div>
             </div>
