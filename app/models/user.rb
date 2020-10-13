@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :requests, dependent: :destroy
   has_many :jobs, dependent: :destroy
   validates :username, presence: true
+  validates :profile, length: { maximum: 1000 }
 end
