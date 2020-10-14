@@ -1,0 +1,30 @@
+<div class="account_page">
+  <div class="account_page__inner">
+    <div class="account_page__header__edit">
+      <h3>プロフィール</h3>
+    </div>
+    <div class="account_page__user_form__edit">
+      <%= form_with model: @user, local: true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+          
+        <div class="field">
+          <div class="field_input">
+            <%= f.label :username, "ユーザー名" %><br>
+            <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field_input">
+            <%= f.label :profile, "プロフィール" %><br>
+            <%= f.text_area :profile, rows: 10, autofocus: true, autocomplete: "profile" %>
+          </div>
+        </div>
+
+        <div class="actions__edit">
+          <%= f.submit "保存する", class: "btn__update" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

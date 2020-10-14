@@ -17,6 +17,9 @@
     <% if user_signed_in? %>
       <ul class="header__bar__user_nav">
         <li class="header__bar__user_nav__btn">
+          <%= link_to "プロフィール", user_path(current_user) %>
+        </li>
+        <li class="header__bar__user_nav__btn">
           <%= link_to "設定", edit_user_registration_path %>
         </li>
         <li class="header__bar__user_nav__btn">
