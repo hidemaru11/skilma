@@ -5,13 +5,13 @@
     </h1>
     <ul class="header__bar__content_nav">
       <li class="header__bar__content_nav__list">
+        <%= link_to "スキルをさがす", root_path %>
+      </li>
+      <li class="header__bar__content_nav__list">
         <%= link_to "音楽仲間をさがす", requests_path %>
       </li>
       <li class="header__bar__content_nav__list">
         <%= link_to "仕事を依頼する", jobs_path %>
-      </li>
-      <li class="header__bar__content_nav__list">
-        <%= link_to "スキルを紹介する", root_path %>
       </li>
     </ul>
     <% if user_signed_in? %>
