@@ -44,7 +44,7 @@
                       <span>アイコン</span>
                     </div>
                     <div class="card_bottom_name">
-                      <%= link_to job.user.username, root_path %>
+                      <%= link_to job.user.username, user_path(job.user) %>
                     </div>
                     <div class="card_bottom_area">
                       <span><%= job.area %></span>

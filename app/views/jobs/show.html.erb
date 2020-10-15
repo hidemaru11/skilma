@@ -8,7 +8,7 @@
         <div class="user_icon">
           【アイコン】
         </div>
-        <p class="username"><%= link_to @job.user.username, root_path %></p>
+        <p class="username"><%= link_to @job.user.username, user_path(@job.user) %></p>
         <% if @job.user_id != current_user.id %>
           <div class="link follow">
             <%= link_to "フォローする", root_path %>
