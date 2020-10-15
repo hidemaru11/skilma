@@ -1,3 +1,36 @@
-<%= @user.username %>
-<%= simple_format @user.profile %>
-<%= link_to "編集する", edit_user_path(@user) %>
+<div class="profile">
+  <div class="profile_header">
+    <div class="inner">
+      <div class="user_icon">
+        <div class="user_icon_image">
+          【アイコン】
+        </div>
+      </div>
+      <div class="username">
+        <%= @user.username %>
+      </div>
+    </div>
+  </div>
+  <div class="profile_inner">
+    <div class="profile_main">
+      <div class="list_card">
+        <h4 class="card_header">自己紹介</h4>
+        <div class="card_profile">
+          <%= simple_format @user.profile %>
+        </div>
+
+        <h4 class="card_header">スキル紹介</h4>
+        <div class="card_profile">
+          スキル紹介ページへのリンク
+        </div>
+        <div class="card_links">
+          <% if user_signed_in? && current_user.id == @user.id %>
+            <div class="admin_actions">
+              <%= link_to "プロフィールを編集する", edit_user_path(@user), class: "edit_link" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
