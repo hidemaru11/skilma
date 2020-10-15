@@ -1,0 +1,91 @@
+.profile {
+
+  &_header {
+    height: 100px;
+    background-color: $color_theme;
+    color: white;
+    position: relative;
+    top: -20px;
+
+    .inner {
+      width: 1200px;
+      margin: 0 auto;
+      padding: 20px 0;
+      display: flex;
+
+      .user_icon {
+        width: 170px;
+        position: relative;
+
+         &_image {
+           width: 125px;
+           height: 125px;
+           margin: 0 auto;
+           border-radius: 50%;
+           border: 10px solid $color_theme;
+           background-color: tomato;
+           text-align: center;
+           line-height: 125px;
+         }
+      }
+
+      .username {
+        margin: 10px 0 0 24px;
+        height: 50px;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &_inner {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
+
+    .profile_main {
+      margin-top: 40px;
+      width: 800px;
+
+      .list_card {
+        padding: 30px;
+        margin-bottom: 20px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+
+        .card_header {
+          margin-bottom: 20px;
+          font-size: 22px;
+        }
+
+        .card_profile {
+          margin-bottom: 40px;
+          p {
+            font-size: 15px;
+            line-height: 1.6;
+          }
+        }
+
+        .card_links {
+          text-align: right;
+          .admin_actions {
+            .edit_link {
+              margin-right: 10px;
+              padding: 4px 10px;
+              border: 1px solid $color_theme;
+              border-radius: 30px;
+              color: $color_theme;
+              font-size: 13px;
+              &:hover {
+                color: white;
+                background-color: $color_theme;
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+}

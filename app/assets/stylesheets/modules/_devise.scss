@@ -91,6 +91,16 @@
             }
           }
 
+          textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: $color_input;
+            font-size: 15px;
+            box-sizing: border-box;
+          }
+
           span {
             font-size: $font_size_note;
             padding-left: 5px;

@@ -21,6 +21,7 @@
           border-radius: 4px;
           color: $color_input;
           font-size: 15px;
+          box-sizing: border-box;
         }
         textarea {
           width: 100%;
@@ -29,6 +30,7 @@
           border-radius: 4px;
           color: $color_input;
           font-size: 15px;
+          box-sizing: border-box;
         }
         .price {
           width: 100px;

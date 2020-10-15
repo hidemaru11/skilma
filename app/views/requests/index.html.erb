@@ -42,7 +42,7 @@
                   <span>アイコン</span>
                 </div>
                 <div class="card_bottom_name">
-                  <%= link_to request.user.username, root_path %>
+                  <%= link_to request.user.username, user_path(request.user) %>
                 </div>
                 <div class="card_bottom_area">
                   <span><%= request.area %></span>
