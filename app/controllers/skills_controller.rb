@@ -10,18 +10,27 @@ class SkillsController < ApplicationController
   def new
     @skill = current_user.build_skill
   end
-end
-
-private
-
+  
+  def create
+    @skill = current_user.build_skill(skill_params)
+    if @skill.save
+      flash[:notice] = "投稿しました"
+      redirect_to skills_path
+    else
+      render :new
+    end
+  end
+  
+  private
+  
   def skill_params
     params.require(:skill).permit(:title, :content)
   end
-
+  
   def set_skill
     @skill = Skill.find(params[:id])
   end
-
+  
   def correct_user
     set_skill
     if current_user.id != @skill.user.id
@@ -29,3 +38,4 @@ private
       redirect_to skills_path
     end
   end
+end
