@@ -1,2 +1,19 @@
-<h1>Skills#new</h1>
-<p>Find me in app/views/skills/new.html.erb</p>
+<div class="contents">
+  <div class="contents_inner">
+    <div class="side_user">
+      <div class="side_user_inner">
+        <div class="user_icon">
+          【アイコン】
+        </div>
+        <p class="username"><%= link_to current_user.username, user_path(current_user) %></p>
+      </div>
+    </div>
+    
+    <div class="main">
+      <div class="main_header_bold">
+        <h4>自分のスキルを紹介する</h4>
+      </div>
+      <%= render 'form' %>
+    </div>
+  </div>
+</div>
