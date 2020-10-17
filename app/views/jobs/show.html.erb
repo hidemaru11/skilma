@@ -61,9 +61,11 @@
         </div>
       </div>
       <div class="message_wrapper">
-        <div class="link message">
-          <%= link_to "メッセージを送る", root_path %>
-        </div>
+        <% if user_signed_in? && @job.user_id != current_user.id %>
+          <div class="link message">
+            <%= link_to "メッセージを送る", root_path %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
