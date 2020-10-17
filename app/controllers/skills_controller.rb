@@ -2,9 +2,11 @@ class SkillsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit]
+  before_action :skill_posted, only: [:new]
 
   def index
     @skills = Skill.all.sorted_desc
+    @my_skill = current_user.skill
   end
 
   def new
@@ -35,6 +37,14 @@ class SkillsController < ApplicationController
     set_skill
     if current_user.id != @skill.user.id
       flash[:notice] = "アクセス権限がありません"
+      redirect_to skills_path
+    end
+  end
+
+  def skill_posted
+    @my_skill = current_user.skill
+    if @my_skill
+      flash[:notice] = "すでに投稿しています"
       redirect_to skills_path
     end
   end
