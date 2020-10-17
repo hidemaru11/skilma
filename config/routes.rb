@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :requests
   resources :jobs
-  resources :skills, except: [:index]
+  resources :skills
   resources :users, only: [:show, :edit, :update]
 end

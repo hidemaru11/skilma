@@ -1,0 +1,60 @@
+<div class="contents">
+  <div class="contents_inner">
+    <div class="side_search">
+      <div class="side_search_inner">
+        <div class="search_key">
+          <h4>キーワードで検索する</h4>
+          <div class="search_form">
+            input_form
+          </div>
+        </div>
+        <div class="search_tag">
+          <h4>タグ</h4>
+          <div class="search_form">
+            input_form
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main_header">
+        <h1>スキルをさがす</h1>
+      </div>
+      <div class="links">
+        <% unless @my_skill %>
+          <%= link_to "スキルを投稿する", new_skill_path, class: "new" %>
+        <% end %>
+      </div>
+      <div class="main_list">
+        <% if @skills.present? %>
+          <% @skills.each do |skill| %>
+            <div class="list_card">
+              <div class="card_top">
+                <%= link_to skill_path(skill) do %>
+                  <h4><%= skill.title %></h4>
+                <% end %>
+              </div>
+              <div class="card_middle">
+                <%= simple_format skill.content %>
+              </div>
+              <div class="card_bottom">
+                <div class="card_bottom_icon">
+                  <span>アイコン</span>
+                </div>
+                <div class="card_bottom_name">
+                  <%= link_to skill.user.username, user_path(skill.user) %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="list_card">
+            <div class="alert">
+              <h4>まだ投稿されたスレッドはありません。</h4>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>

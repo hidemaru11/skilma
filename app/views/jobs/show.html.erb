@@ -9,7 +9,7 @@
           【アイコン】
         </div>
         <p class="username"><%= link_to @job.user.username, user_path(@job.user) %></p>
-        <% if @job.user_id != current_user.id %>
+        <% if user_signed_in? && @job.user_id != current_user.id %>
           <div class="link follow">
             <%= link_to "フォローする", root_path %>
           </div>
