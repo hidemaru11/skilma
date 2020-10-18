@@ -1,6 +1,6 @@
 <div class="contents">
   <div class="back_link">
-    <%= link_to "一覧に戻る", requests_path %>
+    <%= link_to "一覧に戻る", skills_path %>
   </div>
   <div class="contents_inner">
     <div class="side_user">
@@ -8,8 +8,8 @@
         <div class="user_icon">
           【アイコン】
         </div>
-        <p class="username"><%= link_to @request.user.username, user_path(@request.user) %></p>
-        <% if user_signed_in? && @request.user_id != current_user.id %>
+        <p class="username"><%= link_to @skill.user.username, user_path(@skill.user) %></p>
+        <% if user_signed_in? && @skill.user_id != current_user.id %>
           <div class="link follow">
             <%= link_to "フォローする", root_path %>
           </div>
@@ -24,28 +24,24 @@
       <div class="main_detail">
         <div class="detail_top">
           <%= link_to "タグ", root_path, class: "tags" %>
-          <h2 class="title"><%= @request.title %></h2>
-          <div class="info">
-            <span class="area"><%= @request.area %></span>
-            <span class="created_time"><%= time_ago_in_words(@request.created_at)+"前" %></span>
-          </div>
+          <h2 class="title bottom_line"><%= @skill.title %></h2>
         </div>  
         <div class="detail_middle">
           <div class="content">
-            <%= simple_format @request.content %>
+            <%= simple_format @skill.content %>
           </div>
         </div>
         <div class="detail_bottom">
-          <% if user_signed_in? && current_user.id == @request.user.id %>
+          <% if user_signed_in? && current_user.id == @skill.user.id %>
             <div class="admin_actions">
-              <%= link_to "投稿を編集する", edit_request_path(@request), class: "edit_link" %>
-              <%= link_to "投稿を削除する", request_path(@request), method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "delete_link" %>
+              <%= link_to "投稿を編集する", edit_skill_path(@skill), class: "edit_link" %>
+              <%= link_to "投稿を削除する", skill_path(@skill), method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "delete_link" %>
             </div>
           <% end %>
         </div>
       </div>
       <div class="message_wrapper">
-        <% if user_signed_in? && @request.user_id != current_user.id %>
+        <% if user_signed_in? && @skill.user_id != current_user.id %>
           <div class="link message">
             <%= link_to "メッセージを送る", root_path %>
           </div>

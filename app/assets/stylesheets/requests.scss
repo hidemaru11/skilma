@@ -211,7 +211,6 @@
             margin: 0 0 8px;
             max-height: 140px;
             overflow: hidden;
-            display: flex;
             justify-content: space-between;
 
             p {
@@ -281,6 +280,10 @@
             font-size: $font_size_h2;
             font-weight: 700;
             color: #4f5050;
+          }
+
+          .bottom_line {
+            border-bottom: 1px solid #d0d0d0;
           }
 
           .info {
