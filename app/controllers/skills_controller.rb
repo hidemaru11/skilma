@@ -37,6 +37,12 @@ class SkillsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @skill.destroy
+    flash[:notice] = "削除しました"
+    redirect_to skills_path
+  end
   
   private
   
