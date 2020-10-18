@@ -25,6 +25,18 @@ class SkillsController < ApplicationController
 
   def show
   end
+
+  def edit
+  end
+
+  def update
+    if @skill.update(skill_params)
+      flash[:notice] = "編集しました"
+      redirect_to @skill
+    else
+      render :edit
+    end
+  end
   
   private
   
@@ -48,7 +60,7 @@ class SkillsController < ApplicationController
     @my_skill = current_user.skill
     if @my_skill
       flash[:notice] = "すでに投稿しています"
-      redirect_to skills_path
+      redirect_to @my_skill
     end
   end
 end

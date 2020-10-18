@@ -30,7 +30,7 @@ class RequestsController < ApplicationController
   def update
     if @request.update(request_params)
       flash[:notice] = "編集しました"
-      redirect_to request_path
+      redirect_to @request
    else
      render :edit
    end

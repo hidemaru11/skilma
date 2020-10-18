@@ -30,7 +30,7 @@ class JobsController < ApplicationController
   def update
     if @job.update(job_params)
       flash[:notice] = "編集しました"
-      redirect_to job_path
+      redirect_to @job
    else
      render :edit
    end
