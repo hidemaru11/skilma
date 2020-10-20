@@ -368,6 +368,37 @@
           margin-bottom: 10px;
         }
 
+        .card_top {
+          margin: 0 0 6px;
+          h4 {
+            color: #4f5050;
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            &:hover {
+              color: $color_hover;
+            }
+          }
+        }
+
+        .link_show {
+          margin-top: 15px;
+          a {
+            display: block;
+            width: 110px;
+            padding: 5px 0;
+            text-align: center;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            background-color: $color_theme;
+            &:hover {
+              opacity: 0.6;
+            }
+          }
+        }
+
         .admin_actions {
           display: flex;
           justify-content: flex-end;

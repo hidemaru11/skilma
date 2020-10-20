@@ -48,7 +48,17 @@
             <div class="main_plan back_white">
               <div class="list_card">
                 <div class="card_top">
-                  <h4><%= plan.title %></h4>
+                  <%= link_to skill_plan_path(plan) do %>
+                    <h4><%= plan.title %></h4>
+                  <% end %>
+                  <div class="info">
+                    <span>
+                      <%= plan.budget.to_s(:delimited) %>円
+                      <% if plan.budget_unit.name != "" %>
+                        ／
+                      <% end %>
+                    <%= plan.budget_unit.name %></span>
+                  </div>
                 </div>
                 <div class="card_middle">
                   <%= simple_format plan.content %>
@@ -61,12 +71,15 @@
                     </div>
                   <% end %>
                 </div>
+                <div class="link_show">
+                  <%= link_to "詳細を見る", skill_plan_path(plan) %>
+                </div>
               </div>
             </div>
           <% end %>
         <% end %>
         <div class="links">
-          <% if user_signed_in? && current_user.skill %>
+          <% if user_signed_in? && current_user.skill && current_user.skill.id == @skill.id %>
             <%= link_to "プランを追加する", new_skill_plan_path(current_user.skill), class: "new" %>
           <% end %>
         </div>
