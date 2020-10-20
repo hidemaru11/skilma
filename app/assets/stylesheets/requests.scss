@@ -114,6 +114,13 @@
       margin-left: 5%;
       width: 70%;
 
+      .back_white {
+        padding: 30px;
+        margin-bottom: 20px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+      }
+
       &_header {
         color: $color_theme;
         margin: 0 0 10px 20px;
@@ -257,9 +264,6 @@
       }
 
       &_detail {
-        padding: 30px;
-        margin-bottom: 20px;
-        background-color: white;
 
         .detail_top {
           margin-bottom: 20px;
@@ -350,6 +354,47 @@
               &:hover {
                 opacity: 0.6;
               }
+            }
+          }
+        }
+      }
+
+      .plan_wrapper {
+        h3 {
+          font-size: 20px;
+          font-weight: 700;
+          color: $color_theme;
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+
+        .admin_actions {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 10px;
+          margin-right: 20px;
+          
+          .edit_link {
+            margin-right: 10px;
+            padding: 4px 10px;
+            border: 1px solid $color_theme;
+            border-radius: 30px;
+            color: $color_theme;
+            font-size: 13px;
+            &:hover {
+              color: white;
+              background-color: $color_theme;
+            }
+          }
+
+          .delete_link {
+            padding: 4px 10px;
+            border: 1px solid $color_theme;
+            border-radius: 30px;
+            color: $color_note;
+            font-size: 13px;
+            &:hover {
+              opacity: 0.6;
             }
           }
         }
