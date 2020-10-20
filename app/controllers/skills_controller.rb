@@ -6,7 +6,9 @@ class SkillsController < ApplicationController
 
   def index
     @skills = Skill.all.sorted_desc
-    @my_skill = current_user.skill
+    if user_signed_in?
+      @my_skill = current_user.skill
+    end
   end
 
   def new
@@ -24,6 +26,7 @@ class SkillsController < ApplicationController
   end
 
   def show
+    @plans = Plan.where(skill_id: params[:id]).sorted_desc
   end
 
   def edit
