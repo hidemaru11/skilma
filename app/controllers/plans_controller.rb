@@ -33,6 +33,12 @@ class PlansController < ApplicationController
     end
   end
 
+  def destroy
+    @plan.destroy
+    flash[:notice] = "削除しました"
+    redirect_to skill_path(@skill)
+  end
+
   private
 
   def plan_params

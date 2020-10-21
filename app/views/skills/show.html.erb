@@ -63,14 +63,6 @@
                 <div class="card_middle">
                   <%= simple_format plan.content %>
                 </div>
-                <div class="card_bottom">
-                  <% if user_signed_in? && current_user.skill && current_user.skill.id == plan.skill_id %>
-                    <div class="admin_actions">
-                      <%= link_to "プランを編集する", edit_skill_plan_path(id: plan.id, skill_id: plan.skill.id), class: "edit_link" %>
-                      <%= link_to "投稿を削除する", skill_plan_path(id: plan.id, skill_id: plan.skill.id), method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "delete_link" %>
-                    </div>
-                  <% end %>
-                </div>
                 <div class="link_show">
                   <%= link_to "詳細を見る", skill_plan_path(id: plan.id, skill_id: plan.skill.id) %>
                 </div>
