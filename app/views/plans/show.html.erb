@@ -42,8 +42,8 @@
         <div class="detail_bottom">
           <% if user_signed_in? && current_user.id == @skill.user.id %>
             <div class="admin_actions">
-              <%= link_to "投稿を編集する", edit_skill_path(@skill), class: "edit_link" %>
-              <%= link_to "投稿を削除する", skill_path(@skill), method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "delete_link" %>
+              <%= link_to "投稿を編集する", edit_skill_plan_path(id: @plan.id, skill_id: @plan.skill.id), class: "edit_link" %>
+              <%= link_to "投稿を削除する", skill_plan_path(id: @plan.id, skill_id: @plan.skill.id), method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "delete_link" %>
             </div>
           <% end %>
         </div>

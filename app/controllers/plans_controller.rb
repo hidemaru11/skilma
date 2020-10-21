@@ -2,7 +2,7 @@ class PlansController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_skill, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
-  before_action :needs_skill, :correct_skill, only: [:new]
+  before_action :needs_skill, :correct_skill, only: [:new, :edit]
 
   def new
     @plan = Plan.new
@@ -25,6 +25,12 @@ class PlansController < ApplicationController
   end
 
   def update
+    if @plan.update(plan_params)
+      flash[:notice] = "編集しました"
+      redirect_to skill_plan_path(id: @plan.id, skill_id: @plan.skill.id)
+    else
+      render :edit
+    end
   end
 
   private
