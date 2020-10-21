@@ -1,14 +1,14 @@
 class PlansController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_skill, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :set_plan, only: [:show, :edit, :update, :destroy]
   before_action :needs_skill, :correct_skill, only: [:new]
 
   def new
-    @skill = Skill.find(params[:skill_id])
     @plan = Plan.new
   end
 
   def create
-    @skill = Skill.find(params[:skill_id])
     @plan = Plan.new(plan_params)
     if @plan.save
       flash[:notice] = "登録しました"
@@ -16,6 +16,15 @@ class PlansController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private
@@ -31,8 +40,16 @@ class PlansController < ApplicationController
     end
   end
   
-  def correct_skill
+  def set_skill
     @skill = Skill.find(params[:skill_id])
+  end
+
+  def set_plan
+    @plan = Plan.find(params[:id])
+  end
+
+  def correct_skill
+    set_skill
     unless current_user.skill && @skill.id == current_user.skill.id
       flash[:alert] = "権限がありません"
       redirect_to skills_path

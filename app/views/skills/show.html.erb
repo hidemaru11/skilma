@@ -48,7 +48,7 @@
             <div class="main_plan back_white">
               <div class="list_card">
                 <div class="card_top">
-                  <%= link_to skill_plan_path(plan) do %>
+                  <%= link_to skill_plan_path(id: plan.id, skill_id: plan.skill.id) do %>
                     <h4><%= plan.title %></h4>
                   <% end %>
                   <div class="info">
@@ -72,7 +72,7 @@
                   <% end %>
                 </div>
                 <div class="link_show">
-                  <%= link_to "詳細を見る", skill_plan_path(plan) %>
+                  <%= link_to "詳細を見る", skill_plan_path(id: plan.id, skill_id: plan.skill.id) %>
                 </div>
               </div>
             </div>
