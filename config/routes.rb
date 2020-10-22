@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   root 'home#index'
-  resources :requests
+  resources :mates
   resources :jobs
   resources :skills do
     resources :plans

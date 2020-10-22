@@ -23,32 +23,32 @@
       </div>
       <div class="links">
         <%= link_to "自分の投稿をチェック", root_path, class: "link_small" %>
-        <%= link_to "投稿はこちらから", new_request_path, class: "new" %>
+        <%= link_to "投稿はこちらから", new_mate_path, class: "new" %>
       </div>
       <div class="main_list">
-        <% if @requests.present? %>
-          <% @requests.each do |request| %>
+        <% if @mates.present? %>
+          <% @mates.each do |mate| %>
             <div class="list_card">
               <div class="card_top">
-                <%= link_to request_path(request) do %>
-                  <h4><%= request.title %></h4>
+                <%= link_to mate_path(mate) do %>
+                  <h4><%= mate.title %></h4>
                 <% end %>
               </div>
               <div class="card_middle">
-                <%= simple_format request.content %>
+                <%= simple_format mate.content %>
               </div>
               <div class="card_bottom">
                 <div class="card_bottom_icon">
                   <span>アイコン</span>
                 </div>
                 <div class="card_bottom_name">
-                  <%= link_to request.user.username, user_path(request.user) %>
+                  <%= link_to mate.user.username, user_path(mate.user) %>
                 </div>
                 <div class="card_bottom_area">
-                  <span><%= request.area %></span>
+                  <span><%= mate.area %></span>
                 </div>
                 <div class="card_bottom_time">
-                  <span><%= time_ago_in_words(request.created_at)+"前" %></span>
+                  <span><%= time_ago_in_words(mate.created_at)+"前" %></span>
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-class Request < ApplicationRecord
+class Mate < ApplicationRecord
   belongs_to :user
   validates :title, length: { in: 3..100 }
   validates :content, length: { in: 3..1000 }
