@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_18_220933) do
+ActiveRecord::Schema.define(version: 2020_10_21_235610) do
 
   create_table "budget_units", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2020_10_18_220933) do
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
+  create_table "mates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "area"
+    t.index ["user_id"], name: "index_mates_on_user_id"
+  end
+
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
@@ -41,16 +51,6 @@ ActiveRecord::Schema.define(version: 2020_10_18_220933) do
     t.datetime "updated_at", null: false
     t.index ["budget_unit_id"], name: "index_plans_on_budget_unit_id"
     t.index ["skill_id"], name: "index_plans_on_skill_id"
-  end
-
-  create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "content", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "area"
-    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 2020_10_18_220933) do
 
   add_foreign_key "jobs", "budget_units"
   add_foreign_key "jobs", "users"
+  add_foreign_key "mates", "users"
   add_foreign_key "plans", "budget_units"
   add_foreign_key "plans", "skills"
-  add_foreign_key "requests", "users"
   add_foreign_key "skills", "users"
 end
