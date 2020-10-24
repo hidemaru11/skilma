@@ -55,7 +55,7 @@ class JobsController < ApplicationController
   def correct_user
     set_job
     if current_user.id != @job.user.id
-      flash[:notice] = "アクセス権限がありません"
+      flash[:alert] = "アクセス権限がありません"
       redirect_to jobs_path
     end
   end

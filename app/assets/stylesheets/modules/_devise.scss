@@ -224,7 +224,7 @@
 }
 
 #error_explanation {
-  width: 350px;
+  width: 420px;
   margin: 20px auto;
   padding: 20px 30px;
   background-color: $color_alert_light;
@@ -233,6 +233,7 @@
     margin-bottom: 10px;
     color: #d65f4c;
     font-size: 14px;
+    font-weight: 700;
   }
 
   ul {

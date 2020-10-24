@@ -60,7 +60,7 @@ class SkillsController < ApplicationController
   def correct_user
     set_skill
     if current_user.id != @skill.user.id
-      flash[:notice] = "アクセス権限がありません"
+      flash[:alert] = "アクセス権限がありません"
       redirect_to skills_path
     end
   end
@@ -68,7 +68,7 @@ class SkillsController < ApplicationController
   def skill_posted
     @my_skill = current_user.skill
     if @my_skill
-      flash[:notice] = "すでに投稿しています"
+      flash[:alert] = "すでに投稿しています"
       redirect_to @my_skill
     end
   end
