@@ -32,7 +32,7 @@ private
   def correct_user
     set_user
     if current_user.id != @user.id
-      flash[:notice] = "アクセス権限がありません"
+      flash[:alert] = "アクセス権限がありません"
       redirect_to root_path
     end
   end

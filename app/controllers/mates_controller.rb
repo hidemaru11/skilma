@@ -56,7 +56,7 @@ private
   def correct_user
     set_mate
     if current_user.id != @mate.user.id
-      flash[:notice] = "アクセス権限がありません"
+      flash[:alert] = "アクセス権限がありません"
       redirect_to mates_path
     end
   end
