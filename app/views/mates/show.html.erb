@@ -9,14 +9,12 @@
           【アイコン】
         </div>
         <p class="username"><%= link_to @mate.user.username, user_path(@mate.user) %></p>
-        <% if user_signed_in? && @mate.user_id != current_user.id %>
-          <div class="link follow">
-            <%= link_to "フォローする", root_path %>
-          </div>
-          <div class="link message">
-            <%= link_to "メッセージを送る", root_path %>
-          </div>
-        <% end %>
+        <div class="link follow">
+          <%= render 'shared/follow_form', user: @mate.user if user_signed_in? %>
+        </div>
+        <div class="link message">
+          <%= link_to "メッセージを送る", root_path %>
+        </div>
       </div>
     </div>
 
