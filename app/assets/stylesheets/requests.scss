@@ -2,6 +2,22 @@
 
   .link {
     margin: 14px auto;
+    input {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      padding: 6px 0;
+      border: 2px solid $color_theme;
+      border-radius: 40px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      &:hover {
+        color: white;
+        background-color: $color_theme;
+      }
+    }
+    // 下記aの項目はメッセージ実装後調整
     a {
       display: block;
       width: 80%;
@@ -91,8 +107,9 @@
         }
   
         .follow {
-          a {
+          input {
             color: $color_theme;
+            background-color: white;
             &:hover {
               color: white;
               background-color: $color_theme;
