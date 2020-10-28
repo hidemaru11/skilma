@@ -26,12 +26,17 @@
           </div>
         <% end %>
         <div class="card_links">
-          <% if user_signed_in? && current_user.id == @user.id %>
+          <% if user_signed_in? && current_user == @user %>
             <div class="admin_actions">
               <%= link_to "プロフィールを編集する", edit_user_path(@user), class: "edit_link" %>
             </div>
           <% end %>
         </div>
+      </div>
+    </div>
+    <div class="profile_side">
+      <div class="link follow">
+        <%= render 'shared/follow_form', user: @user if user_signed_in? %>
       </div>
     </div>
   </div>
