@@ -3,8 +3,8 @@ class RoomsController < ApplicationController
   def create
     @room = Room.create
     @entry1 = Entry.create(room_id: @room.id, user_id: current_user.id)
-    @entry2 = Entry.create(entry_params).merge(room_id: @room.id))
-    redirect_to "/rooms/#{@room.id}"
+    @entry2 = Entry.create((entry_params).merge(room_id: @room.id))
+    redirect_to @room
   end
 
   def show
