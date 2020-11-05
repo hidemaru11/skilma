@@ -13,7 +13,18 @@
           <%= render 'shared/follow_form', user: @skill.user if user_signed_in? %>
         </div>
         <div class="link message">
-          <%= link_to "メッセージを送る", root_path %>
+          <% unless @skill.user.id == current_user.id %>
+            <% if @isRoom == true %>
+              <%= link_to "メッセージを送る", room_path(@roomId) %>
+            <% else %>
+              <%= form_with model: @room do |f| %>
+                <%= fields_for @entry do |e| %>
+                  <%= e.hidden_field :user_id, value: @skill.user.id %>
+                <% end %>
+                <%= f.submit "メッセージを送る" %>
+              <% end %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -78,7 +89,18 @@
       <div class="message_wrapper">
         <% if user_signed_in? && @skill.user_id != current_user.id %>
           <div class="link message">
-            <%= link_to "メッセージを送る", root_path %>
+            <% unless @skill.user.id == current_user.id %>
+              <% if @isRoom == true %>
+                <%= link_to "メッセージを送る", room_path(@roomId) %>
+              <% else %>
+                <%= form_with model: @room do |f| %>
+                  <%= fields_for @entry do |e| %>
+                    <%= e.hidden_field :user_id, value: @skill.user.id %>
+                  <% end %>
+                  <%= f.submit "メッセージを送る" %>
+                <% end %>
+              <% end %>
+            <% end %>
           </div>
         <% end %>
       </div>
