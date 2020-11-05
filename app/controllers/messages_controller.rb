@@ -10,6 +10,13 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @message = Message.find(params[:id])
+    @message.destroy
+    flash[:notice] = "削除しました"
+    redirect_back(fallback_location: root_path)
+  end
+
   private
     def message_params
       params.require(:message).permit(:user_id, :room_id, :content)

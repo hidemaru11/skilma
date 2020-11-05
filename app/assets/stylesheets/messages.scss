@@ -60,7 +60,17 @@
             }
             .date {
               span {
+                margin-right: 15px;
                 font-size: 13px;
+              }
+            }
+            .delete {
+              a {
+                color: grey;
+                font-size: 13px;
+                &:hover {
+                  opacity: 0.6;
+                }
               }
             }
           }

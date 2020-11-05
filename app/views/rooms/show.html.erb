@@ -23,6 +23,11 @@
                 <div class="date">
                   <span><%= l m.created_at, format: :simple %></span>
                 </div>
+                <% if m.user == current_user %>
+                  <div class="delete">
+                    <%= link_to "[x]", m, method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+                  </div>
+                <% end %>
               </div>
               <div class="card_bottom">
                 <%= m.content %>
