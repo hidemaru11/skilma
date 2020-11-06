@@ -233,6 +233,18 @@
                 color: $color_hover;
               }
             }
+            a {
+              color: #555;
+              font-size: 13px;
+              &:hover {
+                opacity: 0.6;
+              }
+            }
+            .name {
+              margin-right: 4px;
+              font-weight: 700;
+              font-size: 18px
+            }
           }
 
           .card_middle {

@@ -3,10 +3,10 @@ class RoomsController < ApplicationController
 
   def index
     user = current_user
-    @currentEntries = current_user.entries
+    currentEntries = current_user.entries
     myRoomIds = []
 
-    @currentEntries.each do |entry|
+    currentEntries.each do |entry|
       myRoomIds << entry.room.id
     end
 
