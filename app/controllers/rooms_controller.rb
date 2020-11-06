@@ -1,5 +1,18 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
+
+  def index
+    user = current_user
+    @currentEntries = current_user.entries
+    myRoomIds = []
+
+    @currentEntries.each do |entry|
+      myRoomIds << entry.room.id
+    end
+
+    @partnerEntries = Entry.where(room_id: myRoomIds).where("user_id != ?", user.id)
+  end
+  
   def create
     @room = Room.create
     @entry1 = Entry.create(room_id: @room.id, user_id: current_user.id)

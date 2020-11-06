@@ -1,0 +1,39 @@
+<div class="contents">
+  <div class="contents_inner">
+    <div class="side_search">
+      <div class="side_search_inner">
+        <div class="search_key">
+          <h4>キーワードで検索する</h4>
+          <div class="search_form">
+            input_form
+          </div>
+        </div>
+        <div class="search_tag">
+          <h4>タグ</h4>
+          <div class="search_form">
+            input_form
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main_header">
+        <h1>メッセージ</h1>
+      </div>
+      <div class="main_list">
+
+          <% @partnerEntries.each do |entry| %>
+            <div class="list_card">
+              <div class="card_top">
+                <%= link_to room_path(entry.room.id) do %>
+                <span class="name"><%= entry.user.username %></span><span>さんとのメッセージ</span>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        
+      </div>
+    </div>
+  </div>
+</div>
