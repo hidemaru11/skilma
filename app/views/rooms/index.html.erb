@@ -22,7 +22,7 @@
         <h1>メッセージ</h1>
       </div>
       <div class="main_list">
-
+        <% if @partnerEntries.present? %>
           <% @partnerEntries.each do |entry| %>
             <div class="list_card">
               <div class="card_top">
@@ -32,7 +32,13 @@
               </div>
             </div>
           <% end %>
-        
+        <% else %>
+          <div class="list_card">
+            <div class="alert">
+              <h4>まだメッセージはありません。</h4>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
