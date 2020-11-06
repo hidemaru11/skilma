@@ -38,6 +38,20 @@
       <div class="link follow">
         <%= render 'shared/follow_form', user: @user if user_signed_in? %>
       </div>
+      <div class="link message">
+        <% unless @user.id == current_user.id %>
+          <% if @isRoom == true %>
+            <%= link_to "メッセージを送る", room_path(@roomId) %>
+          <% else %>
+            <%= form_with model: @room do |f| %>
+              <%= fields_for @entry do |e| %>
+                <%= e.hidden_field :user_id, value: @user.id %>
+              <% end %>
+              <%= f.submit "メッセージを送る" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

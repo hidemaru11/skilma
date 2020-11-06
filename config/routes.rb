@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update]
   resources :relationships, only: [:create, :destroy]
+  resources :messages, only: [:create, :destroy]
+  resources :rooms, only: [:index, :create, :show]
 end

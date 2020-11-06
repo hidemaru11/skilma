@@ -1,0 +1,47 @@
+<div class="messages">
+  <div class="messages_inner">
+    <h2>メッセージ</h2>
+    <div class="main">
+      <div class="message_form">
+        <% @entries.each do |e| %>
+          <% unless e.user == current_user %>
+            <p class="username"><%= link_to e.user.username, e.user %>さんにメッセージを送る</p>
+          <% end %>
+        <% end %>
+        
+        <%= render 'form' %>
+      </div>
+      
+      <div class="message_list">
+        <% if @messages.present? %>
+          <% @messages.each do |m| %>
+            <div class="message_card">
+              <div class="card_top">
+                <div class="name">
+                  <%= m.user.username %>
+                </div>
+                <div class="date">
+                  <span><%= l m.created_at, format: :simple %></span>
+                </div>
+                <% if m.user == current_user %>
+                  <div class="delete">
+                    <%= link_to "[x]", m, method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="card_bottom">
+                <%= m.content %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="message_card">
+            <div class="alert">
+              <h4>まだ投稿されたスレッドはありません。</h4>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

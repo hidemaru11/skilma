@@ -1,0 +1,85 @@
+.messages {
+
+  &_inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    h2 {
+      margin-bottom: 10px;
+      color: $color_theme;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .main {
+      width: 70%;
+      .message_form {
+        padding: 30px;
+        margin-bottom: 20px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+
+        .username {
+          margin-bottom: 10px;
+          a {
+            margin-right: 4px;
+            font-weight: 700;
+            color: #4f5050;
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+        }
+
+        textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          color: $color_input;
+          font-size: 15px;
+          box-sizing: border-box;
+        }
+      }
+
+      .message_list {
+        .message_card {
+          margin-bottom: 20px;
+          padding: 20px;
+          background-color: white;
+          border-bottom: 3px solid #e8e8e8;
+
+          .card_top {
+            display: flex;
+            margin-bottom: 10px;
+
+            .name {
+              margin-right: 15px;
+              font-weight: 700;
+            }
+            .date {
+              span {
+                margin-right: 15px;
+                font-size: 13px;
+              }
+            }
+            .delete {
+              a {
+                color: grey;
+                font-size: 13px;
+                &:hover {
+                  opacity: 0.6;
+                }
+              }
+            }
+          }
+
+          .card_bottom {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+}
