@@ -1,3 +1,23 @@
-// Place all the styles related to the Notifications controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.notifications_list {
+  
+  &_inner {
+    
+    .notification_detail {
+      width: 500px;
+      margin: 0 auto 20px;
+      padding: 20px;
+      background-color: white;
+      border-bottom: 3px solid #e8e8e8;
+
+      .message {
+        a {
+          color: $color_note;
+          font-weight: 700;
+        }
+        .date {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
