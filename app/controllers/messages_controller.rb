@@ -7,17 +7,18 @@ class MessagesController < ApplicationController
       @room = @message.room
       if @message.save
         @partnerEntry = Entry.where(room_id: @room.id).where.not(user_id: current_user.id)
+        @partnerEntryId = @partnerEntry.find_by(room_id: @room.id)
         notification = current_user.active_notifications.build(
           room_id: @room.id,
           message_id: @message.id,
-          visited_id: @partnerEntry.user_id,
+          visited_id: @partnerEntryId.user_id,
           visitor_id: current_user.id,
           action: "message"
         )
         if notification.visitor_id == notification.visited_id
           notification.checked = true
         end
-        notification.save if notificatioon.valid?
+        notification.save if notification.valid?
 
         redirect_to "/rooms/#{@message.room_id}"
       end

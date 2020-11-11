@@ -1,0 +1,10 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<div>
+  <% case notification.action %>
+  <% when "message" %>
+    <%= link_to rooms_path do %>
+      <%= visitor.username %>さんからメッセージが届いています！
+    <% end %>
+  <% end %>
+</div>
