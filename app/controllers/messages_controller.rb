@@ -3,8 +3,25 @@ class MessagesController < ApplicationController
 
   def create
     if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?
-      @message = Message.create((message_params).merge(user_id: current_user.id))
-      redirect_to "/rooms/#{@message.room_id}"
+      @message = Message.new((message_params).merge(user_id: current_user.id))
+      @room = @message.room
+      if @message.save
+        @partnerEntry = Entry.where(room_id: @room.id).where.not(user_id: current_user.id)
+        @partnerEntryId = @partnerEntry.find_by(room_id: @room.id)
+        notification = current_user.active_notifications.build(
+          room_id: @room.id,
+          message_id: @message.id,
+          visited_id: @partnerEntryId.user_id,
+          visitor_id: current_user.id,
+          action: "message"
+        )
+        if notification.visitor_id == notification.visited_id
+          notification.checked = true
+        end
+        notification.save if notification.valid?
+
+        redirect_to "/rooms/#{@message.room_id}"
+      end
     else
       redirect_back(fallback_location: root_path)
     end

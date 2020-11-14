@@ -110,11 +110,12 @@
 
       .link {
         margin: 14px auto;
-        input {
+        input, a {
           display: block;
           width: 80%;
           margin: 0 auto;
           padding: 6px 0;
+          text-align: center;
           border: 2px solid $color_theme;
           border-radius: 40px;
           font-size: 15px;
@@ -136,6 +137,14 @@
             background-color: $color_theme;
           }
         }
+      }
+
+      .message {
+        margin-top: 20px;
+          input, a {
+            color: white;
+            background-color: $color_theme;
+          }
       }
     }
   }
