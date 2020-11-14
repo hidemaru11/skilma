@@ -40,6 +40,19 @@
           color: $color_theme;
           text-decoration: none;
         }
+        .fa-stack {
+          display: inline;
+        }
+        .n-bell {
+          font-size: 1.1rem;
+        }
+        .n-circle {
+          font-size: 0.5rem;
+          position: absolute;
+          padding-left: 0.6rem;
+          padding-top: 0.3rem;
+          color: #efa04c;
+        }
       }
       & .user_name {
         margin-right: 8px;
