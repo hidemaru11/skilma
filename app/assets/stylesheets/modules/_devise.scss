@@ -142,16 +142,16 @@
 
   .btn {
     display: inline-block;
-    width: 330px;
-    height: 60px;
-    padding: 0 30px;
+    width: 280px;
+    height: 45px;
+    padding: 0 20px;
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 1px;
-    line-height: 60px;
+    line-height: 45px;
     text-align: center;
     border: none;
-    border-radius: 40px;
+    border-radius: 30px;
     cursor: pointer;
 
     &__update {
@@ -181,6 +181,28 @@
           color: white;
           background-color: $color_theme;
         }
+      }
+    }
+  }
+
+  .guest_login {
+    margin-top: 15px;
+    a {
+      color: $color_theme;
+      background-color: white;
+      display: inline-block;
+      width: 260px;
+      height: 36px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 36px;
+      text-align: center;
+      border: 2px solid $color_theme;
+      border-radius: 18px;
+      cursor: pointer;
+      &:hover {
+        color: white;
+        background-color: $color_theme;
       }
     }
   }
