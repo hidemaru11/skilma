@@ -10,7 +10,7 @@ class RoomsController < ApplicationController
       myRoomIds << entry.room.id
     end
 
-    @partnerEntries = Entry.where(room_id: myRoomIds).where("user_id != ?", user.id)
+    @partnerEntries = Entry.where(room_id: myRoomIds).where("user_id != ?", user.id).order(created_at: :desc)
   end
   
   def create
