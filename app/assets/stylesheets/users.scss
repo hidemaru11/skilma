@@ -48,11 +48,34 @@
       margin-top: 40px;
       width: 800px;
 
+      .user_list {
+        padding: 10px 30px;
+        margin-bottom: 10px;
+        background-color: white;
+        border-bottom: 3px solid #e8e8e8;
+        a {
+          color: $color_content;
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+
       .list_card {
         padding: 30px;
         margin-bottom: 20px;
         background-color: white;
         border-bottom: 3px solid #e8e8e8;
+
+        .stats {
+          a {
+            margin-right: 20px;
+            color: $color_theme;
+            &:hover {
+              font-weight: 700;
+            }
+          }
+        }
 
         .card_header {
           margin-bottom: 20px;
