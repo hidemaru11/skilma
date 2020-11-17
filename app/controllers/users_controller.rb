@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy,]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :following, :followers]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :following, :followers]
   before_action :correct_user, only: [:edit]
 
   def show
@@ -32,6 +32,16 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def following
+    @users = @user.following
+    render 'show_follow'
+  end
+  
+  def followers
+    @users = @user.followers
+    render 'show_follow'
   end
   
   private

@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   resources :skills do
     resources :plans
   end
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    member do
+      get :following, :followers
+    end
+  end
   resources :relationships, only: [:create, :destroy]
   resources :messages, only: [:create, :destroy]
   resources :rooms, only: [:index, :create, :show]
