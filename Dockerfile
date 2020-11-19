@@ -4,7 +4,8 @@ RUN apt-get update -qq && apt-get install -y \
     libpq-dev \
     node.js \
     mariadb-client \
-    yarn
+    yarn \
+    imagemagick
 
 WORKDIR /skilma
 COPY Gemfile Gemfile.lock /skilma/
