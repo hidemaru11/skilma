@@ -17,6 +17,13 @@
           <% @messages.each do |m| %>
             <div class="message_card">
               <div class="card_top">
+                <div class="user_icon">
+                  <% if m.user.image.present? %>
+                    <%= image_tag m.user.image[:small].url %>
+                  <% else %>
+                    <%= image_tag "default_user.png" %>
+                  <% end %>
+                </div>
                 <div class="name">
                   <%= m.user.username %>
                 </div>

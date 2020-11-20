@@ -53,7 +53,17 @@
           .card_top {
             display: flex;
             margin-bottom: 10px;
-
+            align-items: center;
+            .user_icon {
+              img {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 1px solid #ccc;
+              }
+            }
             .name {
               margin-right: 15px;
               font-weight: 700;

@@ -26,6 +26,13 @@
           <% @partnerEntries.each do |entry| %>
             <div class="list_card">
               <div class="card_top">
+                <div class="user_icon">
+                  <% if entry.user.image.present? %>
+                    <%= image_tag entry.user.image[:small].url %>
+                  <% else %>
+                    <%= image_tag "default_user.png" %>
+                  <% end %>
+                </div>
                 <%= link_to room_path(entry.room.id) do %>
                 <span class="name"><%= entry.user.username %></span><span>さんとのメッセージ</span>
                 <% end %>

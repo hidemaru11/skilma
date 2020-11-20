@@ -30,6 +30,15 @@
       align-items: center;
       &__btn {
         padding: 0 8px;
+        img {
+          width: 40px;
+          height: 40px;
+          position: relative;
+          top: 4px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 1px solid #ccc;
+        }
         &:hover {
           background-color: $color_theme_opacity;
           opacity: 0.8;
@@ -43,7 +52,7 @@
         .fa-stack {
           display: inline;
         }
-        .n-bell {
+        .n-bell, .fa-envelope, .fa-cog {
           font-size: 1.1rem;
         }
         .n-circle {

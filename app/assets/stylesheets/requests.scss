@@ -87,12 +87,16 @@
         border-bottom: 3px solid #e8e8e8;
   
         .user_icon {
-          width: 125px;
-          height: 125px;
-          margin: 0 auto 10px;
-          line-height: 125px;
-          background-color: #ddd;
-          border-radius: 50%;
+          img {
+            width: 125px;
+            height: 125px;
+            margin: 0 auto 10px;
+            object-fit: cover;
+            line-height: 125px;
+            background-color: #ddd;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+          }
         }
   
         .username {
@@ -266,9 +270,17 @@
             display: flex;
             font-size: 13px;
             color: #4f5050;
+            align-items: center;
             
-            &_icon {
-              margin-right: 10px;
+            .user_icon {
+              img {
+                width: 40px;
+                height: 40px;
+                margin-right: 12px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 1px solid #ccc;
+              }
             }
 
             &_name {
@@ -417,6 +429,9 @@
             &:hover {
               color: $color_hover;
             }
+          }
+          .info_price {
+            margin-left: 10px;
           }
         }
 

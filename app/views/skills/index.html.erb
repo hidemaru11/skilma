@@ -39,8 +39,12 @@
                 <%= simple_format skill.content %>
               </div>
               <div class="card_bottom">
-                <div class="card_bottom_icon">
-                  <span>アイコン</span>
+                <div class="user_icon">
+                  <% if skill.user.image.present? %>
+                    <%= image_tag skill.user.image[:small].url %>
+                  <% else %>
+                    <%= image_tag "default_user.png" %>
+                  <% end %>
                 </div>
                 <div class="card_bottom_name">
                   <%= link_to skill.user.username, user_path(skill.user) %>

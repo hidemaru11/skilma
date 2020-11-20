@@ -16,17 +16,16 @@
       .user_icon {
         width: 170px;
         position: relative;
-
-         &_image {
-           img {
-             width: 125px;
-             height: 125px;
-             margin: 0 auto;
-             object-fit: cover;
-             border-radius: 50%;
-             border: 10px solid $color_theme;
-           }
-         }
+        &_image {
+          img {
+            width: 125px;
+            height: 125px;
+            margin: 0 auto;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 10px solid $color_theme;
+          }
+        }
       }
 
       .username {
