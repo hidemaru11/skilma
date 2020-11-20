@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'spring-commands-rspec'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -71,3 +72,4 @@ gem 'font-awesome-sass'
 gem 'shrine'
 gem 'image_processing'
 gem 'mini_magick'
+gem 'aws-sdk-s3'

@@ -18,14 +18,14 @@
         position: relative;
 
          &_image {
-           width: 125px;
-           height: 125px;
-           margin: 0 auto;
-           border-radius: 50%;
-           border: 10px solid $color_theme;
-           background-color: tomato;
-           text-align: center;
-           line-height: 125px;
+           img {
+             width: 125px;
+             height: 125px;
+             margin: 0 auto;
+             object-fit: cover;
+             border-radius: 50%;
+             border: 10px solid $color_theme;
+           }
          }
       }
 
