@@ -271,3 +271,22 @@
     font-size: 13px;
   }
 }
+
+.vali_alert {
+  width: 420px;
+  margin: 20px 0;
+  padding: 20px 30px;
+  background-color: $color_alert_light;
+
+  ul {
+    text-align: left;
+    margin: 0;
+    padding-left: 17px;
+    list-style: square;
+  }
+
+  li {
+    color: #d65f4c;
+    font-size: 13px;
+  }
+}

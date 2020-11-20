@@ -38,8 +38,12 @@
                 <%= simple_format mate.content %>
               </div>
               <div class="card_bottom">
-                <div class="card_bottom_icon">
-                  <span>アイコン</span>
+                <div class="user_icon">
+                  <% if mate.user.image.present? %>
+                    <%= image_tag mate.user.image[:small].url %>
+                  <% else %>
+                    <%= image_tag "default_user.png" %>
+                  <% end %>
                 </div>
                 <div class="card_bottom_name">
                   <%= link_to mate.user.username, user_path(mate.user) %>

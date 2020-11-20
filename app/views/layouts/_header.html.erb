@@ -26,10 +26,18 @@
     <% if user_signed_in? %>
       <ul class="header__bar__user_nav">
         <li class="header__bar__user_nav__btn">
-          <%= link_to "プロフィール", user_path(current_user) %>
+          <%= link_to user_path(current_user) do %>
+            <% if current_user.image.present? %>
+              <%= image_tag current_user.image[:small].url %>
+            <% else %>
+              <%= image_tag "default_user.png" %>
+            <% end %>
+          <% end %>
         </li>
         <li class="header__bar__user_nav__btn">
-          <%= link_to "メッセージ", rooms_path %>
+          <%= link_to rooms_path do %>
+            <i class="far fa-envelope"></i>
+          <% end %>
         </li>
         <li class="header__bar__user_nav__btn">
           <%= link_to notifications_path do %>
@@ -44,7 +52,9 @@
           <% end %>
         </li>
         <li class="header__bar__user_nav__btn">
-          <%= link_to "設定", edit_user_registration_path %>
+          <%= link_to edit_user_registration_path do %>
+            <i class="fas fa-cog"></i>
+          <% end %>
         </li>
         <li class="header__bar__user_nav__btn">
           <%= link_to "ログアウト", sign_out_path %>
