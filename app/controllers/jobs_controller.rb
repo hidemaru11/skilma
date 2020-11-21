@@ -4,7 +4,11 @@ class JobsController < ApplicationController
   before_action :correct_user, only: [:edit]
 
   def index
-    @jobs = Job.all.sorted_desc
+    if params[:search].present?
+      @jobs = Job.search(params[:search]).sorted_desc
+    else
+      @jobs = Job.all.sorted_desc
+    end
   end
   
   def new

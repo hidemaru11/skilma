@@ -6,7 +6,7 @@
           <h4>キーワードで検索する</h4>
           <div class="search_form">
             <%= form_with( url: mates_path, method: :get, local:true) do |f| %>
-              <%= f.text_field :search, class: "field",value: params[:search] %>
+              <%= f.text_field :search, value: params[:search] %>
               <%= f.submit "検索" %>
             <% end %>
           </div>

@@ -5,7 +5,10 @@
         <div class="search_key">
           <h4>キーワードで検索する</h4>
           <div class="search_form">
-            input_form
+            <%= form_with( url: jobs_path, method: :get, local:true) do |f| %>
+              <%= f.text_field :search, value: params[:search] %>
+              <%= f.submit "検索" %>
+            <% end %>
           </div>
         </div>
         <div class="search_tag">
@@ -83,7 +86,7 @@
         <% else %>
           <div class="list_card">
             <div class="alert">
-              <h4>まだ投稿されたスレッドはありません。</h4>
+              <h4>一致する投稿はありません。</h4>
             </div>
           </div>
         <% end %>

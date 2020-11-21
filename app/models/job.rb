@@ -8,4 +8,8 @@ class Job < ApplicationRecord
   validates :budget, numericality: { greater_tha_or_equal_to: 500, less_than_or_equal_to: 300000 }, allow_blank: true
 
   scope :sorted_desc, -> { order(created_at: :desc) }
+
+  def self.search(search)
+    Job.where(['title LIKE ? OR content LIKE ? OR area LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+  end
 end
