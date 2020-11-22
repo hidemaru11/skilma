@@ -25,9 +25,8 @@
         <h1>スキルをさがす</h1>
       </div>
       <div class="links">
-        <% if user_signed_in? && @my_skill.nil? %>
-          <%= link_to "スキルを投稿する", new_skill_path, class: "new" %>
-        <% end %>
+        <%= link_to "自分の投稿をチェック", root_path, class: "link_small" %>
+        <%= link_to "スキルを投稿する", new_skill_path, class: "new" %>
       </div>
       <div class="main_list">
         <% if @skills.present? %>

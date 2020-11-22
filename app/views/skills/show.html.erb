@@ -54,42 +54,6 @@
         </div>
       </div>
       
-      <div class="plan_wrapper">
-        <h3>プラン</h3>
-        <% if @plans.present? %>
-          <% @plans.each do |plan| %>
-            <div class="main_plan back_white">
-              <div class="list_card">
-                <div class="card_top">
-                  <%= link_to skill_plan_path(id: plan.id, skill_id: plan.skill.id) do %>
-                    <h4><%= plan.title %></h4>
-                  <% end %>
-                  <div class="info_price">
-                    <span>
-                      <%= plan.budget.to_s(:delimited) %>円
-                      <% if plan.budget_unit.name != "" %>
-                        ／
-                      <% end %>
-                    <%= plan.budget_unit.name %></span>
-                  </div>
-                </div>
-                <div class="card_middle">
-                  <%= simple_format plan.content %>
-                </div>
-                <div class="link_show">
-                  <%= link_to "詳細を見る", skill_plan_path(id: plan.id, skill_id: plan.skill.id) %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-        <div class="links">
-          <% if user_signed_in? && current_user.skill && current_user.skill.id == @skill.id %>
-            <%= link_to "プランを追加する", new_skill_plan_path(current_user.skill), class: "new" %>
-          <% end %>
-        </div>
-      </div>
-
       <div class="message_wrapper">
         <% if user_signed_in? && @skill.user_id != current_user.id %>
           <div class="link message">

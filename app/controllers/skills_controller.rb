@@ -2,7 +2,6 @@ class SkillsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit]
-  before_action :skill_posted, only: [:new]
 
   def index
     if params[:search].present?
@@ -10,17 +9,14 @@ class SkillsController < ApplicationController
     else
       @skills = Skill.all.sorted_desc
     end
-    if user_signed_in?
-      @my_skill = current_user.skill
-    end
   end
 
   def new
-    @skill = current_user.build_skill
+    @skill = current_user.skills.build
   end
   
   def create
-    @skill = current_user.build_skill(skill_params)
+    @skill = current_user.skills.build(skill_params)
     if @skill.save
       flash[:notice] = "投稿しました"
       redirect_to skills_path
@@ -30,7 +26,6 @@ class SkillsController < ApplicationController
   end
 
   def show
-    @plans = Plan.where(skill_id: params[:id]).sorted_desc
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @skill.user.id)
     unless @skill.user.id == current_user.id
@@ -82,14 +77,6 @@ class SkillsController < ApplicationController
     if current_user.id != @skill.user.id
       flash[:alert] = "アクセス権限がありません"
       redirect_to skills_path
-    end
-  end
-
-  def skill_posted
-    @my_skill = current_user.skill
-    if @my_skill
-      flash[:alert] = "すでに投稿しています"
-      redirect_to @my_skill
     end
   end
 end

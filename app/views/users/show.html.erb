@@ -29,10 +29,12 @@
         </div>
 
         <h4 class="card_header">スキル紹介</h4>
-        <% if @user.skill %>
+        <% if @user.skills %>
+          <% @user.skills.each do |skill| %>
           <div class="card_skill">
-            <%= link_to @user.skill.title, @user.skill %>
+            <%= link_to skill.title, skill %>
           </div>
+          <% end %>
         <% end %>
         <div class="card_links">
           <% if user_signed_in? && current_user == @user %>

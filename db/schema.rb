@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_013717) do
+ActiveRecord::Schema.define(version: 2020_11_22_174330) do
 
   create_table "budget_units", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -75,18 +75,6 @@ ActiveRecord::Schema.define(version: 2020_11_18_013717) do
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
-  create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "content", null: false
-    t.integer "budget"
-    t.bigint "skill_id"
-    t.bigint "budget_unit_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["budget_unit_id"], name: "index_plans_on_budget_unit_id"
-    t.index ["skill_id"], name: "index_plans_on_skill_id"
-  end
-
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "following_id"
@@ -134,7 +122,5 @@ ActiveRecord::Schema.define(version: 2020_11_18_013717) do
   add_foreign_key "mates", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "plans", "budget_units"
-  add_foreign_key "plans", "skills"
   add_foreign_key "skills", "users"
 end

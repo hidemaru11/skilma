@@ -12,9 +12,7 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :mates
   resources :jobs
-  resources :skills do
-    resources :plans
-  end
+  resources :skills
   resources :users, only: [:show, :edit, :update] do
     member do
       get :following, :followers
