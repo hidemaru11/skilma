@@ -10,7 +10,11 @@ class RoomsController < ApplicationController
       myRoomIds << entry.room.id
     end
 
-    @partnerEntries = Entry.where(room_id: myRoomIds).where("user_id != ?", user.id).order(created_at: :desc)
+    if params[:search].present?
+      @partnerEntries = Entry.joins(:user).where(room_id: myRoomIds).where("user_id != ?", user.id).where('username LIKE ?', "%#{params[:search]}%").order(created_at: :desc)
+    else
+      @partnerEntries = Entry.where(room_id: myRoomIds).where("user_id != ?", user.id).order(created_at: :desc)
+    end
   end
   
   def create
