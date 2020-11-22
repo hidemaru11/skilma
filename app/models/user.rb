@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :mates, dependent: :destroy
   has_many :jobs, dependent: :destroy
-  has_one :skill, dependent: :destroy
+  has_many :skills, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "following_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :following
