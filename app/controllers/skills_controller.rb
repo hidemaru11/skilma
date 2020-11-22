@@ -5,7 +5,11 @@ class SkillsController < ApplicationController
   before_action :skill_posted, only: [:new]
 
   def index
-    @skills = Skill.all.sorted_desc
+    if params[:search].present?
+      @skills = Skill.search(params[:search]).sorted_desc
+    else
+      @skills = Skill.all.sorted_desc
+    end
     if user_signed_in?
       @my_skill = current_user.skill
     end

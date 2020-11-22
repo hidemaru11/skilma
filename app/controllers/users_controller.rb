@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit]
 
   def show
-    @currentUserEntry=Entry.where(user_id: current_user.id)
+    @currentUserEntry=Entry.where(user_id: current_user.id) if user_signed_in?
     @userEntry=Entry.where(user_id: @user.id)
-    unless @user.id == current_user.id
+    if user_signed_in? && @user.id != current_user.id
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
           if cu.room_id == u.room_id then

@@ -3,15 +3,12 @@
     <div class="side_search">
       <div class="side_search_inner">
         <div class="search_key">
-          <h4>キーワードで検索する</h4>
+          <h4>ユーザーを絞り込む</h4>
           <div class="search_form">
-            input_form
-          </div>
-        </div>
-        <div class="search_tag">
-          <h4>タグ</h4>
-          <div class="search_form">
-            input_form
+            <%= form_with( url: rooms_path, method: :get, local:true) do |f| %>
+              <%= f.text_field :search, value: params[:search] %>
+              <%= f.submit "検索" %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -42,7 +39,7 @@
         <% else %>
           <div class="list_card">
             <div class="alert">
-              <h4>まだメッセージはありません。</h4>
+              <h4>メッセージはありません。</h4>
             </div>
           </div>
         <% end %>

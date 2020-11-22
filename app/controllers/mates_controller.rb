@@ -4,7 +4,11 @@ class MatesController < ApplicationController
   before_action :correct_user, only: [:edit]
 
   def index
-    @mates = Mate.all.sorted_desc
+    if params[:search].present?
+      @mates = Mate.search(params[:search]).sorted_desc
+    else
+      @mates = Mate.all.sorted_desc
+    end
   end
 
   def new

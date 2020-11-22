@@ -5,4 +5,8 @@ class Mate < ApplicationRecord
   validates :area, length: { maximum: 255 }
 
   scope :sorted_desc, -> { order(created_at: :desc) }
+
+  def self.search(search)
+    Mate.where(['title LIKE ? OR content LIKE ? OR area LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+  end
 end

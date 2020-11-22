@@ -6,4 +6,8 @@ class Skill < ApplicationRecord
   validates :content, length: { in: 3..2000 }
 
   scope :sorted_desc, -> { order(created_at: :desc) }
+
+  def self.search(search)
+    Skill.where(['title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])
+  end
 end

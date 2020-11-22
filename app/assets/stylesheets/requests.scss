@@ -62,12 +62,23 @@
         background-color: white;
         border-bottom: 3px solid #e8e8e8;
 
+        .search_form {
+          input {
+            margin: 10px auto;
+            padding: 5px;
+            border: 1px solid #ccc;
+          }
+          input[type="submit"] {
+            color: $color_input;
+          }
+        }
+
         .search_tag {
           margin: 20px 0 0;
         }
       }
       h4 {
-        font-size: $font_size_h4;
+        font-size: $font_size_default;
         font-weight: 700;
       }
     }
