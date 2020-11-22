@@ -48,14 +48,28 @@
       width: 800px;
 
       .user_list {
+        display: flex;
+        align-items: center;
         padding: 10px 30px;
         margin-bottom: 10px;
         background-color: white;
         border-bottom: 3px solid #e8e8e8;
-        a {
-          color: $color_content;
-          &:hover {
-            opacity: 0.6;
+        .user_icon {
+          img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+          }
+        }
+        .user_name {
+          a {
+            color: $color_content;
+            &:hover {
+              opacity: 0.6;
+            }
           }
         }
       }

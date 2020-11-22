@@ -9,13 +9,26 @@
       background-color: white;
       border-bottom: 3px solid #e8e8e8;
 
-      .message {
+      .notification_list {
+        display: flex;
+        align-items: center;
         a {
           color: $color_note;
           font-weight: 700;
         }
         .date {
           font-size: 13px;
+        }
+      }
+
+      .user_icon {
+        img {
+          width: 40px;
+          height: 40px;
+          margin-right: 15px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 1px solid #ccc;
         }
       }
     }

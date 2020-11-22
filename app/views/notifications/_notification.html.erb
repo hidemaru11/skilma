@@ -1,20 +1,27 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
 <div class="notification_detail">
-  <% case notification.action %>
-  <% when "message" %>
-    <div class="message">
-      <%= link_to rooms_path do %>
-        <%= visitor.username %>さんからメッセージが届きました
+  <div class="notification_list">
+    <div class="user_icon">
+      <% if visitor.image.present? %>
+        <%= image_tag visitor.image[:small].url %>
+      <% else %>
+        <%= image_tag "default_user.png" %>
       <% end %>
-      <span class="date"><%= "（" + time_ago_in_words(notification.created_at) + "前）" %></span>
     </div>
-  <% when "follow" %>
-    <div class="message">
-      <%= link_to user_path(visitor) do %>
-        <%= visitor.username %>
+    <div class="detail">
+      <% case notification.action %>
+      <% when "message" %>
+        <%= link_to rooms_path do %>
+          <%= visitor.username %>さんからメッセージが届きました
+        <% end %>
+        <span class="date"><%= "（" + time_ago_in_words(notification.created_at) + "前）" %></span>
+      <% when "follow" %>
+        <%= link_to user_path(visitor) do %>
+          <%= visitor.username %>
+        <% end %>
+        さんがあなたをフォローしました
       <% end %>
-      さんがあなたをフォローしました
     </div>
-  <% end %>
+  </div>
 </div>
