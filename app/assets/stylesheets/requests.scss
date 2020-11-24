@@ -260,6 +260,16 @@
               font-weight: 700;
               font-size: 18px
             }
+            .tag {
+              padding: 4px 8px;
+              font-size: .7rem;
+              background: #f1f1f1;
+              color: $color_theme;
+              margin-right: 5px;
+              &:hover {
+                opacity: 0.5;
+              }
+            }
           }
 
           .card_middle {

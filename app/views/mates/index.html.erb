@@ -36,6 +36,11 @@
                 <%= link_to mate_path(mate) do %>
                   <h4><%= mate.title %></h4>
                 <% end %>
+                <div class="tags">
+                  <% mate.tags.each do |tag| %>
+                    <%= link_to "#{tag.name}", mates_path(tag: tag.name), class: "tag" %>
+                  <% end %>
+                </div>
               </div>
               <div class="card_middle">
                 <%= simple_format mate.content %>
