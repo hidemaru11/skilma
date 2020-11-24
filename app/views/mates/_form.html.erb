@@ -24,6 +24,13 @@
         </div>
       </div>
 
+      <div class="field">
+        <div class="field_input">
+          <%= f.label :tag_list, "タグ" %><span>(カンマ区切りで複数のタグを入力できます)</span><br>
+          <%= f.text_field :tag_list, autofocus: true, autocomplete: "tag_list", value: @mate.tag_list.join(','), placeholder: "例) Mix, Recording" %><br>
+        </div>
+      </div>
+
     </div>
     <div class="action">
       <%= f.submit class: "btn" %>

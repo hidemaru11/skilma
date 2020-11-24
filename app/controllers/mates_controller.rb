@@ -6,13 +6,18 @@ class MatesController < ApplicationController
   def index
     if params[:search].present?
       @mates = Mate.search(params[:search]).sorted_desc
+    elsif
+      @tag = params[:tag]
+      @mates = Mate.tagged_with(params[:tag])
     else
       @mates = Mate.all.sorted_desc
     end
+    @tags = Mate.tag_counts_on(:tags).order('count DESC')
   end
 
   def new
     @mate = current_user.mates.build
+    @tags = Mate.tag_counts_on(:tags)
   end
   
   def create
@@ -42,9 +47,11 @@ class MatesController < ApplicationController
         @entry = Entry.new
       end
     end
+    @tags = @mate.tag_counts_on(:tags).order('count DESC')
   end
 
   def edit
+    @tags = Mate.tag_counts_on(:tags)
   end
 
   def update
@@ -66,7 +73,7 @@ end
 private
 
   def mate_params
-    params.require(:mate).permit(:title, :content, :area)
+    params.require(:mate).permit(:title, :content, :area, :tag_list)
   end
 
   def set_mate
