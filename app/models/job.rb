@@ -2,6 +2,8 @@ class Job < ApplicationRecord
   belongs_to :user
   belongs_to :budget_unit
 
+  acts_as_taggable_on :tags
+
   validates :title, length: { in: 3..100 }
   validates :content, length: { in: 3..1000 }
   validates :area, length: { maximum: 255 }

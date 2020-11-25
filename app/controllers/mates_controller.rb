@@ -16,7 +16,6 @@ class MatesController < ApplicationController
 
   def new
     @mate = current_user.mates.build
-    @tags = Mate.tag_counts_on(:tags)
   end
   
   def create
