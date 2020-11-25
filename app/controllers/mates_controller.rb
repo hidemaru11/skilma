@@ -6,13 +6,12 @@ class MatesController < ApplicationController
   def index
     if params[:search].present?
       @mates = Mate.search(params[:search]).sorted_desc
-    elsif
-      @tag = params[:tag]
-      @mates = Mate.tagged_with(params[:tag])
+    elsif @tag = params[:tag]
+      @mates = Mate.tagged_with(params[:tag]).sorted_desc
     else
       @mates = Mate.all.sorted_desc
     end
-    @tags = Mate.tag_counts_on(:tags).order('count DESC')
+    @tags = Mate.tag_counts_on(:tags).most_used(20).order('count DESC')
   end
 
   def new
@@ -31,9 +30,9 @@ class MatesController < ApplicationController
   end
 
   def show
-    @currentUserEntry=Entry.where(user_id: current_user.id)
+    @currentUserEntry=Entry.where(user_id: current_user.id) if user_signed_in?
     @userEntry=Entry.where(user_id: @mate.user.id)
-    unless @mate.user.id == current_user.id
+    if user_signed_in? && @mate.user.id != current_user.id
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
           if cu.room_id == u.room_id then

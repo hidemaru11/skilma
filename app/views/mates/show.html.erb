@@ -17,7 +17,7 @@
           <%= render 'shared/follow_form', user: @mate.user if user_signed_in? %>
         </div>
         <div class="link message">
-          <% unless @mate.user.id == current_user.id %>
+          <% if user_signed_in? && @mate.user.id != current_user.id %>
             <% if @isRoom == true %>
               <%= link_to "メッセージを送る", room_path(@roomId) %>
             <% else %>
