@@ -12,9 +12,15 @@
           </div>
         </div>
         <div class="search_tag">
-          <h4>タグ</h4>
-          <div class="search_form">
-            input_form
+          <h4>タグで絞り込む</h4>
+          <div class="tag_list">
+            <% if @tags.present? %>
+              <% @tags.each do |tag| %>
+                <%= link_to "#{tag.name}", skills_path(tag: tag.name), class: "tag" %>
+              <% end %>
+            <% else %>
+              タグはありません。
+            <% end %>
           </div>
         </div>
       </div>
@@ -36,6 +42,11 @@
                 <%= link_to skill_path(skill) do %>
                   <h4><%= skill.title %></h4>
                 <% end %>
+                <div class="tags">
+                  <% skill.tags.each do |tag| %>
+                    <%= link_to "#{tag.name}", skills_path(tag: tag.name), class: "tag" %>
+                  <% end %>
+                </div>
               </div>
               <div class="card_middle">
                 <%= simple_format skill.content %>

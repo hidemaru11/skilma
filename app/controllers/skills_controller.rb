@@ -6,9 +6,12 @@ class SkillsController < ApplicationController
   def index
     if params[:search].present?
       @skills = Skill.search(params[:search]).sorted_desc
+    elsif @tag = params[:tag]
+      @skills = Skill.tagged_with(params[:tag]).sorted_desc
     else
       @skills = Skill.all.sorted_desc
     end
+    @tags = Skill.tag_counts_on(:tags).most_used(20).order('count DESC')
   end
 
   def new
@@ -26,9 +29,9 @@ class SkillsController < ApplicationController
   end
 
   def show
-    @currentUserEntry=Entry.where(user_id: current_user.id)
+    @currentUserEntry=Entry.where(user_id: current_user.id) if user_signed_in?
     @userEntry=Entry.where(user_id: @skill.user.id)
-    unless @skill.user.id == current_user.id
+    if user_signed_in? && @skill.user.id != current_user.id
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
           if cu.room_id == u.room_id then
@@ -42,6 +45,7 @@ class SkillsController < ApplicationController
         @entry = Entry.new
       end
     end
+    @tags = @skill.tag_counts_on(:tags).order('count DESC')
   end
 
   def edit
@@ -65,7 +69,7 @@ class SkillsController < ApplicationController
   private
   
   def skill_params
-    params.require(:skill).permit(:title, :content)
+    params.require(:skill).permit(:title, :content, :tag_list)
   end
   
   def set_skill

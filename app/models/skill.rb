@@ -1,6 +1,8 @@
 class Skill < ApplicationRecord
   belongs_to :user
 
+  acts_as_taggable_on :tags
+
   validates :title, length: { in: 3..100 }
   validates :content, length: { in: 3..2000 }
 
