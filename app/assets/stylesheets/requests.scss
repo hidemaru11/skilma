@@ -75,6 +75,21 @@
 
         .search_tag {
           margin: 20px 0 0;
+          .tag_list {
+            margin-top: 5px;
+          }
+          .tag {
+            padding: 4px 8px;
+            margin-bottom: 5px;
+            display: inline-block;
+            font-size: .7rem;
+            background: #f1f1f1;
+            color: $color_theme;
+            margin-right: 5px;
+            &:hover {
+              opacity: 0.5;
+            }
+          }
         }
       }
       h4 {
@@ -260,6 +275,16 @@
               font-weight: 700;
               font-size: 18px
             }
+            .tag {
+              padding: 4px 8px;
+              font-size: .7rem;
+              background: #f1f1f1;
+              color: $color_theme;
+              margin-right: 5px;
+              &:hover {
+                opacity: 0.5;
+              }
+            }
           }
 
           .card_middle {
@@ -322,21 +347,25 @@
       &_detail {
 
         .detail_top {
-          margin-bottom: 20px;
+          margin-bottom: 10px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #ddd;
 
           .tags {
-            padding: 4px 8px;
-            font-size: .7rem;
-            background: #f1f1f1;
-            color: $color_theme;
-            margin-right: 5px;
-            &:hover {
-              opacity: 0.5;
+            margin-bottom: 5px;
+            .tag {
+              padding: 4px 8px;
+              font-size: .7rem;
+              background: #f1f1f1;
+              color: $color_theme;
+              margin-right: 5px;
+              &:hover {
+                opacity: 0.5;
+              }
             }
           }
 
           .title {
-            padding: 8px 0;
             font-size: $font_size_h2;
             font-weight: 700;
             color: #4f5050;

@@ -22,7 +22,7 @@
         <% if @partnerEntries.present? %>
           <% @partnerEntries.each do |entry| %>
             <div class="list_card">
-              <div class="card_top">
+              <div class="card_body">
                 <div class="user_icon">
                   <% if entry.user.image.present? %>
                     <%= image_tag entry.user.image[:small].url %>

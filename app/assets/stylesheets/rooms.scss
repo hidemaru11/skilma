@@ -1,8 +1,20 @@
 .list_card {
   padding: 20px 10px;
-  .card_top {
+  .card_body {
     display: flex;
     align-items: center;
+    a {
+      color: #555;
+      font-size: 13px;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+    .name {
+      margin-right: 4px;
+      font-weight: 700;
+      font-size: 18px
+    }
     .user_icon {
       img {
         width: 40px;

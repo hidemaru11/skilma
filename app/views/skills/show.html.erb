@@ -17,7 +17,7 @@
           <%= render 'shared/follow_form', user: @skill.user if user_signed_in? %>
         </div>
         <div class="link message">
-          <% unless @skill.user.id == current_user.id %>
+          <% if user_signed_in? && @skill.user.id != current_user.id %>
             <% if @isRoom == true %>
               <%= link_to "メッセージを送る", room_path(@roomId) %>
             <% else %>
@@ -36,8 +36,12 @@
     <div class="main">
       <div class="main_detail back_white">
         <div class="detail_top">
-          <%= link_to "タグ", root_path, class: "tags" %>
-          <h2 class="title bottom_line"><%= @skill.title %></h2>
+          <h2 class="title"><%= @skill.title %></h2>
+          <div class="tags">
+            <% @tags.each do |tag| %>
+              <%= link_to "#{tag.name}", skills_path(tag: tag.name), class: "tag" %>
+            <% end %>
+          </div>
         </div>  
         <div class="detail_middle">
           <div class="content">

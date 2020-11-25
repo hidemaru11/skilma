@@ -6,9 +6,12 @@ class JobsController < ApplicationController
   def index
     if params[:search].present?
       @jobs = Job.search(params[:search]).sorted_desc
+    elsif @tag = params[:tag]
+      @jobs = Job.tagged_with(params[:tag]).sorted_desc
     else
       @jobs = Job.all.sorted_desc
     end
+    @tags = Job.tag_counts_on(:tags).most_used(20).order('count DESC')
   end
   
   def new
@@ -26,9 +29,9 @@ class JobsController < ApplicationController
   end
 
   def show
-    @currentUserEntry=Entry.where(user_id: current_user.id)
+    @currentUserEntry=Entry.where(user_id: current_user.id) if user_signed_in?
     @userEntry=Entry.where(user_id: @job.user.id)
-    unless @job.user.id == current_user.id
+    if user_signed_in? && @job.user.id != current_user.id
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
           if cu.room_id == u.room_id then
@@ -42,6 +45,7 @@ class JobsController < ApplicationController
         @entry = Entry.new
       end
     end
+    @tags = @job.tag_counts_on(:tags).order('count DESC')
   end
 
   def edit
@@ -65,7 +69,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :content, :area, :budget, :budget_unit_id)
+    params.require(:job).permit(:title, :content, :area, :budget, :budget_unit_id, :tag_list)
   end
 
   def set_job
