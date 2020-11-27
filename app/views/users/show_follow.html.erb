@@ -4,7 +4,7 @@
       <div class="user_icon">
         <div class="user_icon_image">
           <% if @user.image.present? %>
-            <%= image_tag @user.image[:small].url %>
+            <%= image_tag @user.image_url(:small) %>
           <% else %>
             <%= image_tag "default_user.png" %>
           <% end %>

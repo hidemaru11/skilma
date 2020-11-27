@@ -54,7 +54,7 @@
               <div class="card_bottom">
                 <div class="user_icon">
                   <% if mate.user.image.present? %>
-                    <%= image_tag mate.user.image[:small].url %>
+                    <%= image_tag mate.user.image_url(:small) %>
                   <% else %>
                     <%= image_tag "default_user.png" %>
                   <% end %>

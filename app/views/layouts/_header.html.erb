@@ -28,7 +28,7 @@
         <li class="header__bar__user_nav__btn">
           <%= link_to user_path(current_user) do %>
             <% if current_user.image.present? %>
-              <%= image_tag current_user.image[:small].url %>
+              <%= image_tag current_user.image_url(:small) %>
             <% else %>
               <%= image_tag "default_user.png" %>
             <% end %>
@@ -64,6 +64,9 @@
       <ul class="header__bar__user_nav">
         <li class="header__bar__user_nav__btn">
           <%= link_to "ログイン", sign_in_path %>
+        </li>
+        <li class="header__bar__user_nav__btn">
+          <%= link_to "ゲストログイン", guest_sign_in_path, method: :post %>
         </li>
         <li class="header__bar__user_nav__btn">
           <%= link_to "新規登録", new_user_registration_path %>

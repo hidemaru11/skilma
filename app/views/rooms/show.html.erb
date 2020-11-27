@@ -19,7 +19,7 @@
               <div class="card_top">
                 <div class="user_icon">
                   <% if m.user.image.present? %>
-                    <%= image_tag m.user.image[:small].url %>
+                    <%= image_tag m.user.image_url(:small) %>
                   <% else %>
                     <%= image_tag "default_user.png" %>
                   <% end %>
