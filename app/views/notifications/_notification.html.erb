@@ -4,7 +4,7 @@
   <div class="notification_list">
     <div class="user_icon">
       <% if visitor.image.present? %>
-        <%= image_tag visitor.image[:small].url %>
+        <%= image_tag visitor.image_url(:small) %>
       <% else %>
         <%= image_tag "default_user.png" %>
       <% end %>

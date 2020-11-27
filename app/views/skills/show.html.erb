@@ -7,7 +7,7 @@
       <div class="side_user_inner">
         <div class="user_icon">
           <% if @skill.user.image.present? %>
-            <%= image_tag @skill.user.image[:small].url %>
+            <%= image_tag @skill.user.image_url(:small) %>
           <% else %>
             <%= image_tag "default_user.png" %>
           <% end %>
