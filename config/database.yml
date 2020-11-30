@@ -51,4 +51,5 @@ production:
   <<: *default
   database: skilma_production
   username: skilma
-  password: <%= ENV['SKILMA_DATABASE_PASSWORD'] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  host: <%= Rails.application.credentials.db[:hostname] %>

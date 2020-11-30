@@ -5,7 +5,8 @@ RUN apt-get update -qq && apt-get install -y \
     node.js \
     mariadb-client \
     yarn \
-    imagemagick
+    imagemagick \
+    vim
 
 WORKDIR /skilma
 COPY Gemfile Gemfile.lock /skilma/
