@@ -325,6 +325,7 @@ DEPENDENCIES
   rails-i18n
   rspec-rails
   sass-rails (~> 5.0)
+  sassc
   selenium-webdriver
   shrine
   spring
