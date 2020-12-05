@@ -14,8 +14,8 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: 
-  host: localhost
+  password: <%= ENV.fetch("DATABASE_PASSWORD") %>
+  host: db
 
 development:
   <<: *default
@@ -50,6 +50,5 @@ test:
 production:
   <<: *default
   database: skilma_production
-  username: skilma
   password: <%= Rails.application.credentials.db[:password] %>
   host: <%= Rails.application.credentials.db[:hostname] %>
