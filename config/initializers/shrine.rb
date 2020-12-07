@@ -12,6 +12,9 @@ if Rails.env.production?
   Shrine.storages = {
     cache: Shrine::Storage::S3.new(prefix: 'cache', **s3_options),
     store: Shrine::Storage::S3.new(prefix: 'store', **s3_options)}
+  
+  asset_host = "https://static.static.skilma.net"
+  Shrine.plugin :default_url_options, cache: { public: true, host: cdn_host }, store: { public: true, host: asset_host }
 else
   Shrine.storages = {
     cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/cache"),
