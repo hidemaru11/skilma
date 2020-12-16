@@ -6,6 +6,8 @@ class SkillsController < ApplicationController
   def index
     if params[:search].present?
       @skills = Skill.search(params[:search]).sorted_desc
+    elsif params[:user_id].present?
+      @skills = Skill.my_posts(params[:user_id]).sorted_desc
     elsif @tag = params[:tag]
       @skills = Skill.tagged_with(params[:tag]).sorted_desc
     else

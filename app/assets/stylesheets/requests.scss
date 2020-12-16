@@ -186,12 +186,17 @@
       }
 
       .links {
+        display: flex;
         text-align: right;
         margin-bottom: 10px;
 
         .link_small {
+          height: 100%;
+          margin-left: 20px;
+          align-items: center;
           color: $color_theme;
-          margin-right: 10px;
+          background-color: #f4f8fa;
+          border: none;
           font-size: 13px;
           &:hover {
             color: $color_hover;
