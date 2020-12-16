@@ -6,6 +6,8 @@ class JobsController < ApplicationController
   def index
     if params[:search].present?
       @jobs = Job.search(params[:search]).sorted_desc
+    elsif params[:user_id].present?
+      @jobs = Job.my_posts(params[:user_id]).sorted_desc
     elsif @tag = params[:tag]
       @jobs = Job.tagged_with(params[:tag]).sorted_desc
     else

@@ -31,8 +31,11 @@
         <h1>仕事を依頼する</h1>
       </div>
       <div class="links">
-        <%= link_to "自分の投稿をチェック", root_path, class: "link_small" %>
         <%= link_to "投稿はこちらから", new_job_path, class: "new" %>
+        <%= form_with( url: jobs_path, method: :get, local:true) do |f| %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.submit "自分の投稿をチェック", class: "link_small" %>
+        <% end %>
       </div>
       <div class="main_list">
         <% if @jobs.present? %>
@@ -97,7 +100,7 @@
         <% else %>
           <div class="list_card">
             <div class="alert">
-              <h4>一致する投稿はありません。</h4>
+              <h4>投稿はありません。</h4>
             </div>
           </div>
         <% end %>

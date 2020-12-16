@@ -12,4 +12,8 @@ class Mate < ApplicationRecord
   def self.search(search)
     Mate.where(['title LIKE ? OR content LIKE ? OR area LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
   end
+
+  def self.my_posts(user_id)
+    Mate.where('user_id = ?', user_id)
+  end
 end

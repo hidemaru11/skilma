@@ -11,4 +11,8 @@ class Skill < ApplicationRecord
   def self.search(search)
     Skill.where(['title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])
   end
+
+  def self.my_posts(user_id)
+    Skill.where('user_id = ?', user_id)
+  end
 end

@@ -6,6 +6,8 @@ class MatesController < ApplicationController
   def index
     if params[:search].present?
       @mates = Mate.search(params[:search]).sorted_desc
+    elsif params[:user_id].present?
+      @mates = Mate.my_posts(params[:user_id]).sorted_desc
     elsif @tag = params[:tag]
       @mates = Mate.tagged_with(params[:tag]).sorted_desc
     else

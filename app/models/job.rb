@@ -14,4 +14,8 @@ class Job < ApplicationRecord
   def self.search(search)
     Job.where(['title LIKE ? OR content LIKE ? OR area LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
   end
+
+  def self.my_posts(user_id)
+    Job.where('user_id = ?', user_id)
+  end
 end
