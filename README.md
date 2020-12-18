@@ -1,24 +1,56 @@
-# README
+# Skilma
+音楽に関するスキルを持つ人や、音楽仲間を集めたい人達をマッチングするアプリケーションです。このアプリの利用ユーザは下記の3種類を想定しています。
+- 音楽に関するスキルを持つ人
+  - 楽器の演奏、作詞作曲編曲、その他音楽制作関連スキルなどを投稿。
+- バンドメンバーや音楽仲間などを探している人
+  - メンバー募集や音楽仲間としてつながりたい内容を投稿。
+- 音楽に関する仕事相手を探している人
+  - 依頼したい仕事の内容を記載して投稿。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーションURL
+[https://skilma.net/](https://skilma.net/)
 
-Things you may want to cover:
+## アプリケーション本番環境構成
+![aws_layout](https://user-images.githubusercontent.com/63290712/102671741-fee09200-41d2-11eb-9f6b-bb1433d2a0d0.jpg "AWS構成図")
 
-* Ruby version
+# アプリ概要
+こちらのアプリのコンセプトは、以下の2点です。
+1. 自分が持つ音楽のスキルを公開し、そのスキルを求めている人に簡単に見つけられる
+2. 自分が興味のある分野の音楽仲間を見つけて、アプリ経由で直接コンタクトを取れる
 
-* System dependencies
+投稿機能と、ダイレクトメッセージ機能を組み合わせたシンプルなアプリケーションです。
 
-* Configuration
+# 開発した背景
+自分自身、音楽レコーディングのスキルを持ちながらもそのスキルを知ってもらうきっかけがほとんど口コミだけでしたが、このようなスキルをWeb上で共有できるサイトがあったら便利だと思ったことがきっかけです。
+特に若手のミュージシャンやアマチュアの人たちにとっては、スキルのある人たちをどこで見つけたらいいかわからないと聞いていたことから、簡単に検索できてまずは気軽にコンタクトを取れる仕様にしました。
 
-* Database creation
+# 使用技術と開発環境
+- Ruby: 2.6.6
+- Rails: 5.2.4
+- MySQL: 5.7.31
+- Nginx
+- AWS（EC2,RDS,S3,Route53,ALB,ACM,IAM）
+開発環境
+- ローカル環境（MacOS 10.15.6）, VSCode
+- ※途中までDocker環境（Engine: 19.03.13, Compose: 1.27.4）
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 機能一覧
+- ユーザー登録関連 (devise)
+  - 新規登録、プロフィール編集機能
+  - プロフィール画像アップロード機能
+  - ログイン、ログアウト機能
+  - ゲストログイン機能
+- ダイレクトメッセージ機能
+  - メッセージ一覧
+- 通知機能
+  - 新規メッセージ受信時
+  - 新規フォロワー追加時
+- 検索関連
+  - 投稿のキーワード検索機能
+  - メッセージ一覧でユーザー名での絞り込み機能
+- タグ機能 (acts-as-taggable-on)
+  - タグ追加
+  - タグ毎の投稿一覧表示
+- 投稿関連（CRUD）
+- フォロー機能
+  - フォロー中、フォロワー一覧
