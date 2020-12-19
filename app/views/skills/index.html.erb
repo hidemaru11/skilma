@@ -32,9 +32,11 @@
       </div>
       <div class="links">
         <%= link_to "スキルを投稿する", new_skill_path, class: "new" %>
-        <%= form_with( url: skills_path, method: :get, local:true) do |f| %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.submit "自分の投稿をチェック", class: "link_small" %>
+        <% if user_signed_in? %>
+          <%= form_with( url: skills_path, method: :get, local:true) do |f| %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.submit "自分の投稿をチェック", class: "link_small" %>
+          <% end %>
         <% end %>
       </div>
       <div class="main_list">
