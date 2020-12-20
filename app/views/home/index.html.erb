@@ -29,4 +29,93 @@
       </div>
     </div>
   </div>
+  <div class="latest_content">
+    <h3>最新の投稿</h3>
+    <div class="latest_content_each">
+      <div class="latest_content_each_skill">
+        <div class="list_card">
+          <div class="card_top">
+            <%= link_to skill_path(@skill) do %>
+              <h4><%= @skill.title %></h4>
+            <% end %>
+          </div>
+          <div class="card_middle">
+            <%= simple_format @skill.content %>
+          </div>
+          <div class="card_bottom">
+            <div class="user_icon">
+              <% if @skill.user.image.present? %>
+                <%= image_tag @skill.user.image_url(:small) %>
+              <% else %>
+                <%= image_tag "default_user.png" %>
+              <% end %>
+            </div>
+            <div class="card_bottom_name">
+              <%= link_to @skill.user.username, user_path(@skill.user) %>
+            </div>
+            <div class="card_bottom_time">
+              <span><%= time_ago_in_words(@skill.created_at)+"前" %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="latest_content_each_mate">
+        <div class="list_card">
+          <div class="card_top">
+            <%= link_to mate_path(@mate) do %>
+              <h4><%= @mate.title %></h4>
+            <% end %>
+          </div>
+          <div class="card_middle">
+            <%= simple_format @mate.content %>
+          </div>
+          <div class="card_bottom">
+            <div class="user_icon">
+              <% if @mate.user.image.present? %>
+                <%= image_tag @mate.user.image_url(:small) %>
+              <% else %>
+                <%= image_tag "default_user.png" %>
+              <% end %>
+            </div>
+            <div class="card_bottom_name">
+              <%= link_to @mate.user.username, user_path(@mate.user) %>
+            </div>
+            <div class="card_bottom_time">
+              <span><%= time_ago_in_words(@mate.created_at)+"前" %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="latest_content_each_job">
+        <div class="list_card">
+          <div class="card_top">
+            <%= link_to job_path(@job) do %>
+              <h4><%= @job.title %></h4>
+            <% end %>
+          </div>
+          <div class="card_middle">
+            <%= simple_format @job.content %>
+          </div>
+          <div class="card_bottom">
+            <div class="user_icon">
+              <% if @job.user.image.present? %>
+                <%= image_tag @job.user.image_url(:small) %>
+              <% else %>
+                <%= image_tag "default_user.png" %>
+              <% end %>
+            </div>
+            <div class="card_bottom_name">
+              <%= link_to @job.user.username, user_path(@job.user) %>
+            </div>
+            <div class="card_bottom_time">
+              <span><%= time_ago_in_words(@job.created_at)+"前" %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+  </div>
 </div>

@@ -67,6 +67,9 @@
                 <div class="card_bottom_name">
                   <%= link_to skill.user.username, user_path(skill.user) %>
                 </div>
+                <div class="card_bottom_time">
+                  <span><%= time_ago_in_words(skill.created_at)+"前" %></span>
+                </div>
               </div>
             </div>
           <% end %>
