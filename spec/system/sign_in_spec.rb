@@ -16,9 +16,6 @@ describe "ログインのシステムテスト", type: :system do
       expect(current_path).to eq root_path
     end
     it "ログイン後のメニュー一覧が表示されること" do
-      expect(page).to have_content "スキルを探す"
-      expect(page).to have_content "音楽仲間を探す"
-      expect(page).to have_content "仕事を依頼する"
       expect(page).to have_content "ログアウト"
     end
     it "ログイン成功メッセージが表示されること" do
